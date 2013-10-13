@@ -50,7 +50,7 @@ public class EntityPlantShooterBase extends EntityPlantBase
   {
     this.tasks.addTask(1, new EntityAIArrowAttack(this, 0.0D, 35, this.range));
 
-    this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, true, false, IMob.mobSelector));
+    this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityLivingBase.class, 0, true, false, IMob.mobSelector));
 
     this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
     this.tasks.addTask(10, new EntityAILookIdle(this));

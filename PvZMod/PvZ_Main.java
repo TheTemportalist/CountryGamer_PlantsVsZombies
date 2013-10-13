@@ -84,8 +84,8 @@ public class PvZ_Main
   public static PvZ_Main instance = new PvZ_Main();
   private PvZGuiHandler guiHandler = new PvZGuiHandler();
 
-  @SidedProxy(clientSide="CountryGamer_PlantsVsZombies.ClientProxy",
-		  serverSide="CountryGamer_PlantsVsZombies.ServerProxy")
+  @SidedProxy(clientSide="CountryGamer_PlantsVsZombies.PvZMod.Proxy.ClientProxy",
+		  serverSide="CountryGamer_PlantsVsZombies.PvZMod.Proxy.ServerProxy")
   public static ServerProxy proxy;
   public static String base_Tex = "countrygamer_plantsvszombies:";
   public static Item peaPod;

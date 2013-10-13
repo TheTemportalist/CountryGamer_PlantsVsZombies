@@ -4,11 +4,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import CountryGamer_PlantsVsZombies.PvZMod.PvZ_Main;
 import CountryGamer_PlantsVsZombies.PvZMod.PvZ_Util;
 import CountryGamer_PlantsVsZombies.PvZMod.Blocks.BlockChlorophyllBowl;
 import CountryGamer_PlantsVsZombies.PvZMod.Items.ItemBase;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockChest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ContainerChest;
 import net.minecraft.inventory.IInventory;
@@ -40,9 +43,21 @@ public class TileEntityChlorophyllBowl extends TileEntity
   public float prevLidAngle;
   public int numUsingPlayers;
   private int ticksSinceSync;
-  private int field_94046_i = -1;
+  private int cachedChestType;
   private String field_94045_s;
 
+  public TileEntityChlorophyllBowl()
+  {
+      this.cachedChestType = -1;
+  }
+
+  @SideOnly(Side.CLIENT)
+  public TileEntityChlorophyllBowl(int par1)
+  {
+      this.cachedChestType = par1;
+  }
+  
+  
   public void sunlightControl()
   {
     World world = this.worldObj;
@@ -315,8 +330,10 @@ public class TileEntityChlorophyllBowl extends TileEntity
 
   private boolean func_94044_a(int par1, int par2, int par3)
   {
-    Block block = Block.blocksList[this.worldObj.getBlockId(par1, par2, par3)];
-    return ((BlockChlorophyllBowl)block).blockID == func_98041_l();
+      Block block = Block.blocksList[this.worldObj.getBlockId(par1, par2, par3)];
+      return block != null &&
+    		  block instanceof BlockChlorophyllBowl ?
+    				 true : false;
   }
 
   public void updateEntity()
@@ -469,19 +486,19 @@ public class TileEntityChlorophyllBowl extends TileEntity
     checkForAdjacentChests();
   }
 
-  public int func_98041_l()
+  public int getChestType()
   {
-    if (this.field_94046_i == -1)
-    {
-      if ((this.worldObj == null) || (!(getBlockType() instanceof BlockChlorophyllBowl)))
+      if (this.cachedChestType == -1)
       {
-        return 0;
+          if (this.worldObj == null || !(this.getBlockType() instanceof BlockChlorophyllBowl))
+          {
+              return 0;
+          }
+
+          this.cachedChestType = 0;
       }
 
-      this.field_94046_i = ((BlockChlorophyllBowl)getBlockType()).blockID;
-    }
-
-    return this.field_94046_i;
+      return this.cachedChestType;
   }
 
   public boolean isItemValidForSlot(int i, ItemStack itemstack)
