@@ -13,7 +13,7 @@ public class EntityFlagZombie extends EntityZombie
   public EntityFlagZombie(World world) {
     super(world);
 
-    setCurrentItemOrArmor(0, new ItemStack(PvZ_Main.flag, 1));
+    setCurrentItemOrArmor(0, new ItemStack(PvZ_Main.flag));
 
     int min = 1; int max = 4;
     int entIndex = min + (int)(Math.random() * (max - min + 1));

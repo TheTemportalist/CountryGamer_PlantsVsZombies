@@ -64,35 +64,30 @@ public class EntDec
     EntityRegistry.addSpawn(EntitySunflower.class, 1, 1, 4, EnumCreatureType.creature, new BiomeGenBase[0]);
     EntityRegistry.findGlobalUniqueEntityId();
     registerEntityEgg(EntitySunflower.class, primaryColor, 16771584);
-    RenderingRegistry.registerEntityRenderingHandler(EntitySunflower.class, new RenderSunflower(new ModelSunflower(), 0.3F));
     LanguageRegistry.instance().addStringLocalization("entity.Sunflower.name", "Sunflower");
 
     EntityRegistry.registerGlobalEntityID(EntityPeaShooter.class, "Pea Shooter", ++mobID);
     EntityRegistry.addSpawn(EntityPeaShooter.class, 1, 1, 4, EnumCreatureType.creature, new BiomeGenBase[0]);
     EntityRegistry.findGlobalUniqueEntityId();
     registerEntityEgg(EntityPeaShooter.class, primaryColor, 65314);
-    RenderingRegistry.registerEntityRenderingHandler(EntityPeaShooter.class, new RenderPeaShooter(new ModelPeaShooter(), 0.3F));
     LanguageRegistry.instance().addStringLocalization("entity.Pea Shooter.name", "Pea Shooter");
 
     EntityRegistry.registerGlobalEntityID(EntitySnowPea.class, "SnowPea", ++mobID);
     EntityRegistry.addSpawn(EntitySnowPea.class, 1, 1, 4, EnumCreatureType.creature, new BiomeGenBase[0]);
     EntityRegistry.findGlobalUniqueEntityId();
     registerEntityEgg(EntitySnowPea.class, primaryColor, 4571647);
-    RenderingRegistry.registerEntityRenderingHandler(EntitySnowPea.class, new RenderSnowPea(new ModelSnowPea(), 0.3F));
     LanguageRegistry.instance().addStringLocalization("entity.SnowPea.name", "Snow Pea");
 
     EntityRegistry.registerGlobalEntityID(EntityRepeater.class, "Repeater", ++mobID);
     EntityRegistry.addSpawn(EntityRepeater.class, 1, 1, 4, EnumCreatureType.creature, new BiomeGenBase[0]);
     EntityRegistry.findGlobalUniqueEntityId();
     registerEntityEgg(EntityRepeater.class, primaryColor, 1429248);
-    RenderingRegistry.registerEntityRenderingHandler(EntityRepeater.class, new RenderRepeater(new ModelRepeater(), 0.3F));
     LanguageRegistry.instance().addStringLocalization("entity.Repeater.name", "Repeater");
 
     EntityRegistry.registerGlobalEntityID(EntityThreePeater.class, "Three-Peater", ++mobID);
     EntityRegistry.addSpawn(EntityThreePeater.class, 1, 1, 4, EnumCreatureType.creature, new BiomeGenBase[0]);
     EntityRegistry.findGlobalUniqueEntityId();
     registerEntityEgg(EntityThreePeater.class, primaryColor, 1802268);
-    RenderingRegistry.registerEntityRenderingHandler(EntityThreePeater.class, new RenderThreePeater(new ModelThreePeater(), 0.3F));
     LanguageRegistry.instance().addStringLocalization("entity.Three-Peater.name", "Three-Peater");
   }
   public static void basicNight() {
@@ -102,28 +97,24 @@ public class EntDec
     EntityRegistry.addSpawn(EntityPuffShroom.class, 1, 1, 4, EnumCreatureType.creature, new BiomeGenBase[0]);
     EntityRegistry.findGlobalUniqueEntityId();
     registerEntityEgg(EntityPuffShroom.class, primaryColor, 1802268);
-    RenderingRegistry.registerEntityRenderingHandler(EntityPuffShroom.class, new RenderPuffShroom(new ModelPuffShroom(), 0.3F));
     LanguageRegistry.instance().addStringLocalization("entity.PuffShroom.name", "Puff-shroom");
 
     EntityRegistry.registerGlobalEntityID(EntityFumeShroom.class, "FumeShroom", ++mobID);
     EntityRegistry.addSpawn(EntityFumeShroom.class, 1, 1, 4, EnumCreatureType.creature, new BiomeGenBase[0]);
     EntityRegistry.findGlobalUniqueEntityId();
     registerEntityEgg(EntityFumeShroom.class, primaryColor, 1802268);
-    RenderingRegistry.registerEntityRenderingHandler(EntityFumeShroom.class, new RenderFumeShroom(new ModelFumeShroom(), 0.3F));
     LanguageRegistry.instance().addStringLocalization("entity.FumeShroom.name", "Fume-shroom");
 
     EntityRegistry.registerGlobalEntityID(EntityScaredyShroom.class, "ScaredyShroom", ++mobID);
     EntityRegistry.addSpawn(EntityScaredyShroom.class, 1, 1, 4, EnumCreatureType.creature, new BiomeGenBase[0]);
     EntityRegistry.findGlobalUniqueEntityId();
     registerEntityEgg(EntityScaredyShroom.class, primaryColor, 1802268);
-    RenderingRegistry.registerEntityRenderingHandler(EntityScaredyShroom.class, new RenderScaredyShroom(new ModelScaredyShroom(), 0.3F));
     LanguageRegistry.instance().addStringLocalization("entity.ScaredyShroom.name", "Scaredy-shroom");
 
     EntityRegistry.registerGlobalEntityID(EntityMoonShroom.class, "MoonShroom", ++mobID);
     EntityRegistry.addSpawn(EntityMoonShroom.class, 1, 1, 4, EnumCreatureType.creature, new BiomeGenBase[0]);
     EntityRegistry.findGlobalUniqueEntityId();
     registerEntityEgg(EntityMoonShroom.class, primaryColor, 16771584);
-    RenderingRegistry.registerEntityRenderingHandler(EntityMoonShroom.class, new RenderMoonShroom(new ModelMoonShroom(), 0.3F));
     LanguageRegistry.instance().addStringLocalization("entity.MoonShroom.name", "Moon-shroom");
   }
 
@@ -140,14 +131,12 @@ public class EntDec
     EntityRegistry.addSpawn(EntityCreeperRepeater.class, 1, 1, 4, EnumCreatureType.creature, new BiomeGenBase[0]);
     EntityRegistry.findGlobalUniqueEntityId();
     registerEntityEgg(EntityCreeperRepeater.class, primaryColor, 16711680);
-    RenderingRegistry.registerEntityRenderingHandler(EntityCreeperRepeater.class, new RenderAntiCreeper(new ModelRepeater(), 0.3F));
     LanguageRegistry.instance().addStringLocalization("entity.Creeper Repeater.name", "Creeper-Repeater");
 
     EntityRegistry.registerGlobalEntityID(EntityWalnut.class, "Walnut", ++mobID);
     EntityRegistry.addSpawn(EntityWalnut.class, 1, 1, 4, EnumCreatureType.creature, new BiomeGenBase[0]);
     EntityRegistry.findGlobalUniqueEntityId();
     registerEntityEgg(EntityWalnut.class, primaryColor, 16711680);
-    RenderingRegistry.registerEntityRenderingHandler(EntityWalnut.class, new RenderWalnut(new ModelWalnut(), 0.3F));
     LanguageRegistry.instance().addStringLocalization("entity.Walnut.name", "Walnut");
   }
 

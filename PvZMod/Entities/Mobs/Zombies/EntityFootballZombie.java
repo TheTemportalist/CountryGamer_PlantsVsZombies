@@ -11,12 +11,12 @@ public class EntityFootballZombie extends EntityZombie
   {
     super(par1World);
 
-    setCurrentItemOrArmor(4, new ItemStack(PvZ_Main.footballHelm, 1));
+    setCurrentItemOrArmor(4, new ItemStack(PvZ_Main.footballHelm));
 
-    setCurrentItemOrArmor(3, new ItemStack(PvZ_Main.footballChest, 1));
+    setCurrentItemOrArmor(3, new ItemStack(PvZ_Main.footballChest));
 
-    setCurrentItemOrArmor(2, new ItemStack(PvZ_Main.footballLegs, 1));
+    setCurrentItemOrArmor(2, new ItemStack(PvZ_Main.footballLegs));
 
-    setCurrentItemOrArmor(1, new ItemStack(PvZ_Main.footballBoots, 1));
+    setCurrentItemOrArmor(1, new ItemStack(PvZ_Main.footballBoots));
   }
 }
