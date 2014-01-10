@@ -42,6 +42,7 @@ import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntitySnowPea;
 import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntitySunflower;
 import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityThreePeater;
 import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityWalnut;
+import CountryGamer_PlantsVsZombies.Entities.Mobs.Zombies.EntityExplorerZombie;
 import CountryGamer_PlantsVsZombies.Entities.Mobs.Zombies.EntityFlagZombie;
 import CountryGamer_PlantsVsZombies.Entities.Mobs.Zombies.EntityFootballZombie;
 import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntityCreeperPod;
@@ -97,6 +98,8 @@ public class ClientProxy extends ServerProxy {
 				EntityFootballZombie.class, new RenderZombie());
 		RenderingRegistry.registerEntityRenderingHandler(
 				EntityFlagZombie.class, new RenderZombie());
+		RenderingRegistry.registerEntityRenderingHandler(
+				EntityExplorerZombie.class, new RenderZombie());
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityPeaPod.class,
 				new RenderSnowball(PvZ_Main.peaPod));
@@ -113,7 +116,7 @@ public class ClientProxy extends ServerProxy {
 						new RenderSnowball(PvZ_Main.creeperPod));
 
 	}
-	
+
 	@Override
 	public int addArmor(String armor) {
 		return RenderingRegistry.addNewArmourRendererPrefix(armor);

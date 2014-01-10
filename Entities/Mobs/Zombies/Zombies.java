@@ -24,25 +24,30 @@ public class Zombies {
 				"Football Zombie", ++mobID);
 		EntityRegistry.addSpawn(EntityFootballZombie.class, 20, 2, 6,
 				EnumCreatureType.monster, spawnBiomes);
-
 		EntityRegistry.findGlobalUniqueEntityId();
 		EntDec.registerEntityEgg(EntityFootballZombie.class, primaryColor,
 				16711680);
-		
 		LanguageRegistry.instance().addStringLocalization(
 				"entity.Football Zombie.name", "Football Zombie");
-
+		
 		EntityRegistry.registerGlobalEntityID(EntityFlagZombie.class,
 				"Flag Zombie", ++mobID);
 		EntityRegistry.addSpawn(EntityFlagZombie.class, 20, 2, 6,
 				EnumCreatureType.monster, spawnBiomes);
-
 		EntityRegistry.findGlobalUniqueEntityId();
 		EntDec.registerEntityEgg(EntityFlagZombie.class, primaryColor, 0);
-		
 		LanguageRegistry.instance().addStringLocalization(
 				"entity.Flag Zombie.name", "Flag Zombie");
-
+		
+		EntityRegistry.registerGlobalEntityID(EntityExplorerZombie.class,
+				"Explorer Zombie", ++mobID);
+		EntityRegistry.addSpawn(EntityExplorerZombie.class, 20, 2, 6,
+				EnumCreatureType.monster, spawnBiomes);
+		EntityRegistry.findGlobalUniqueEntityId();
+		EntDec.registerEntityEgg(EntityExplorerZombie.class, primaryColor, 0);
+		LanguageRegistry.instance().addStringLocalization(
+				"entity.Explorer Zombie.name", "Explorer Zombie");
+		
 		mobid = mobID;
 	}
 }

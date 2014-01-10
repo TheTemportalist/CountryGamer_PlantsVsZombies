@@ -76,15 +76,15 @@ public class PvZ_Main {
 	public static final String modid = "CountryGamer_PlantsVsZombies";
 	public static final String modidLower = "countrygamer_plantsvszombies";
 	public static final String commonName = "Plants Vs Zombies";
-	public static final String mcVersion = "1.6.2";
-	public static final String modVersion = "2.3";
+	public static final String mcVersion = "1.6.4";
+	public static final String modVersion = "3.2";
 	public static final String channel = "PvZ Mod";
 
 	@Mod.Instance("CountryGamer_PlantsVsZombies")
 	public static PvZ_Main instance = new PvZ_Main();
 	private PvZGuiHandler guiHandler = new PvZGuiHandler();
 
-	@SidedProxy(clientSide = "CountryGamer_PlantsVsZombies.PvZMod.Proxy.ClientProxy", serverSide = "CountryGamer_PlantsVsZombies.PvZMod.Proxy.ServerProxy")
+	@SidedProxy(clientSide = "CountryGamer_PlantsVsZombies.Proxy.ClientProxy", serverSide = "CountryGamer_PlantsVsZombies.Proxy.ServerProxy")
 	public static ServerProxy proxy;
 	public static String base_Tex = "countrygamer_plantsvszombies:";
 	public static Item peaPod;
@@ -286,9 +286,6 @@ public class PvZ_Main {
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		proxy.registerRenderThings();
-		proxy.registerTickHandler();
-
 		pvzTab = new CreativeTabs("pvzTab") {
 			public ItemStack getIconItemStack() {
 				return new ItemStack(PvZ_Main.sunlight, 1, 0);
@@ -304,6 +301,9 @@ public class PvZ_Main {
 		harvestLevel();
 		entities();
 		crafting();
+		
+		proxy.registerRenderThings();
+		proxy.registerTickHandler();
 
 		empower = new PotionEmpower(32, false, 0)
 				.setPotionName("potion.empower");
@@ -607,4 +607,6 @@ public class PvZ_Main {
 								Character.valueOf('v'), Block.cobblestone,
 								Character.valueOf('c'), Block.dirt });
 	}
+	
+	
 }
