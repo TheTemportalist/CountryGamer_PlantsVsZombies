@@ -71,7 +71,7 @@ import net.minecraftforge.common.Property;
 import net.minecraftforge.event.EventBus;
 
 @Mod(modid = "CountryGamer_PlantsVsZombies", name = "Plants Vs Zombies", version = "2.3")
-@NetworkMod(clientSideRequired = true, serverSideRequired = false, channels = { "PvZ Mod" }, packetHandler = PvZPacketHandler.class)
+@NetworkMod(clientSideRequired = true, serverSideRequired = true, channels = { "PvZ Mod" }, packetHandler = PvZPacketHandler.class)
 public class PvZ_Main {
 	public static final String modid = "CountryGamer_PlantsVsZombies";
 	public static final String modidLower = "countrygamer_plantsvszombies";
