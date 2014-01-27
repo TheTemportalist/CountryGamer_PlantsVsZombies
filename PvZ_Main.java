@@ -1,5 +1,21 @@
 package CountryGamer_PlantsVsZombies;
 
+import java.lang.reflect.Field;
+import java.util.logging.Logger;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLiquid;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.EnumHelper;
+import net.minecraftforge.common.MinecraftForge;
 import CountryGamer_PlantsVsZombies.Blocks.BlockChlorophyllBowl;
 import CountryGamer_PlantsVsZombies.Blocks.BlockDarkenedGrass;
 import CountryGamer_PlantsVsZombies.Blocks.BlockDave;
@@ -34,10 +50,7 @@ import CountryGamer_PlantsVsZombies.Items.ItemSunlight;
 import CountryGamer_PlantsVsZombies.Items.ItemTransTrowel;
 import CountryGamer_PlantsVsZombies.Items.ItemTrowel;
 import CountryGamer_PlantsVsZombies.Proxy.ServerProxy;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -47,28 +60,6 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import cpw.mods.fml.relauncher.Side;
-
-import java.io.PrintStream;
-import java.lang.reflect.Field;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialLiquid;
-import net.minecraft.client.renderer.entity.RenderSnowball;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.item.EnumArmorMaterial;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.src.ModLoader;
-import net.minecraftforge.common.Configuration;
-import net.minecraftforge.common.EnumHelper;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.Property;
-import net.minecraftforge.event.EventBus;
 
 @Mod(modid = "CountryGamer_PlantsVsZombies", name = "Plants Vs Zombies", version = "2.3")
 @NetworkMod(clientSideRequired = true, serverSideRequired = true, channels = { "PvZ Mod" }, packetHandler = PvZPacketHandler.class)
@@ -79,7 +70,8 @@ public class PvZ_Main {
 	public static final String mcVersion = "1.6.4";
 	public static final String modVersion = "3.2";
 	public static final String channel = "PvZ Mod";
-
+	
+	public static final Logger log = Logger.getLogger(modid);
 	@Mod.Instance("CountryGamer_PlantsVsZombies")
 	public static PvZ_Main instance = new PvZ_Main();
 	private PvZGuiHandler guiHandler = new PvZGuiHandler();
