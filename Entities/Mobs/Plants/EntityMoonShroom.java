@@ -1,10 +1,11 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Plants;
+package com.countrygamer.pvz.entities.mobs.plants;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import CountryGamer_PlantsVsZombies.PvZ_Main;
+import com.countrygamer.pvz.PvZ;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
@@ -18,12 +19,12 @@ public class EntityMoonShroom extends EntityShroomBase
 {
   public EntityMoonShroom(World par1World)
   {
-    super(par1World, new ItemStack(PvZ_Main.nightPlants, 1, 3));
+    super(par1World, new ItemStack(PvZ.nightPlants, 1, 3));
   }
 
   public void dropFewItems(boolean par1, int par2)
   {
-    dropItem(PvZ_Main.moonlight.itemID, 2);
+    dropItem(PvZ.moonlight, 2);
   }
 
   public void onLivingUpdate()
@@ -39,7 +40,7 @@ public class EntityMoonShroom extends EntityShroomBase
     for (int i = 0; i < rEntities.size(); i++) {
       EntityLivingBase ent = (EntityLivingBase)rEntities.get(i);
 
-      if (ent.getCreatureAttribute() == PvZ_Main.plantAttribute)
+      if (ent.getCreatureAttribute() == PvZ.plantAttribute)
       {
         if (ent.getAITarget() != null)
         {

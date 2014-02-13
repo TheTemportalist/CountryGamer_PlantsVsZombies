@@ -1,8 +1,9 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Plants;
+package com.countrygamer.pvz.entities.mobs.plants;
 
 import java.util.Random;
 
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntityShroomPod;
+import com.countrygamer.pvz.entities.projectiles.EntityShroomPod;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;

@@ -1,6 +1,7 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Plants;
+package com.countrygamer.pvz.entities.mobs.plants;
 
-import CountryGamer_PlantsVsZombies.Resources;
+import com.countrygamer.pvz.lib.Resources;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAILookIdle;

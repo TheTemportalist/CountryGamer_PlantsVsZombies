@@ -1,60 +1,59 @@
-package CountryGamer_PlantsVsZombies.Proxy;
+package com.countrygamer.pvz.proxy;
 
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.client.renderer.entity.RenderZombie;
-import CountryGamer_PlantsVsZombies.ClientTickHandler;
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import CountryGamer_PlantsVsZombies.Blocks.TileEnts.RenderChlorophyllBowl;
-import CountryGamer_PlantsVsZombies.Blocks.TileEnts.RenderGravestone;
-import CountryGamer_PlantsVsZombies.Blocks.TileEnts.RenderGreenhouse;
-import CountryGamer_PlantsVsZombies.Blocks.TileEnts.TileEntityChlorophyllBowl;
-import CountryGamer_PlantsVsZombies.Blocks.TileEnts.TileEntityGravestone;
-import CountryGamer_PlantsVsZombies.Blocks.TileEnts.TileEntityGreenhouse;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.ModelFumeShroom;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.ModelMoonShroom;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.ModelPeaShooter;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.ModelPuffShroom;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.ModelRepeater;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.ModelScaredyShroom;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.ModelSnowPea;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.ModelSunflower;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.ModelThreePeater;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.ModelWalnut;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.RenderAntiCreeper;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.RenderFumeShroom;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.RenderMoonShroom;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.RenderPeaShooter;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.RenderPuffShroom;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.RenderRepeater;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.RenderScaredyShroom;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.RenderSnowPea;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.RenderSunflower;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.RenderThreePeater;
-import CountryGamer_PlantsVsZombies.Client.Renders_Models.RenderWalnut;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityCreeperRepeater;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityFumeShroom;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityMoonShroom;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityPeaShooter;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityPuffShroom;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityRepeater;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityScaredyShroom;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntitySnowPea;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntitySunflower;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityThreePeater;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityWalnut;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Zombies.EntityExplorerZombie;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Zombies.EntityFlagZombie;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Zombies.EntityFootballZombie;
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntityCreeperPod;
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntityMoonlight;
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntityPeaPod;
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntityShroomPod;
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntitySnowPod;
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntitySunlight;
+
+import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.blocks.tiles.RenderChlorophyllBowl;
+import com.countrygamer.pvz.blocks.tiles.RenderGravestone;
+import com.countrygamer.pvz.blocks.tiles.RenderGreenhouse;
+import com.countrygamer.pvz.blocks.tiles.TileEntityChlorophyllBowl;
+import com.countrygamer.pvz.blocks.tiles.TileEntityGravestone;
+import com.countrygamer.pvz.blocks.tiles.TileEntityGreenhouse;
+import com.countrygamer.pvz.client.render.ModelFumeShroom;
+import com.countrygamer.pvz.client.render.ModelMoonShroom;
+import com.countrygamer.pvz.client.render.ModelPeaShooter;
+import com.countrygamer.pvz.client.render.ModelPuffShroom;
+import com.countrygamer.pvz.client.render.ModelRepeater;
+import com.countrygamer.pvz.client.render.ModelScaredyShroom;
+import com.countrygamer.pvz.client.render.ModelSnowPea;
+import com.countrygamer.pvz.client.render.ModelSunflower;
+import com.countrygamer.pvz.client.render.ModelThreePeater;
+import com.countrygamer.pvz.client.render.ModelWalnut;
+import com.countrygamer.pvz.client.render.RenderAntiCreeper;
+import com.countrygamer.pvz.client.render.RenderFumeShroom;
+import com.countrygamer.pvz.client.render.RenderMoonShroom;
+import com.countrygamer.pvz.client.render.RenderPeaShooter;
+import com.countrygamer.pvz.client.render.RenderPuffShroom;
+import com.countrygamer.pvz.client.render.RenderRepeater;
+import com.countrygamer.pvz.client.render.RenderScaredyShroom;
+import com.countrygamer.pvz.client.render.RenderSnowPea;
+import com.countrygamer.pvz.client.render.RenderSunflower;
+import com.countrygamer.pvz.client.render.RenderThreePeater;
+import com.countrygamer.pvz.client.render.RenderWalnut;
+import com.countrygamer.pvz.entities.mobs.plants.EntityCreeperRepeater;
+import com.countrygamer.pvz.entities.mobs.plants.EntityFumeShroom;
+import com.countrygamer.pvz.entities.mobs.plants.EntityMoonShroom;
+import com.countrygamer.pvz.entities.mobs.plants.EntityPeaShooter;
+import com.countrygamer.pvz.entities.mobs.plants.EntityPuffShroom;
+import com.countrygamer.pvz.entities.mobs.plants.EntityRepeater;
+import com.countrygamer.pvz.entities.mobs.plants.EntityScaredyShroom;
+import com.countrygamer.pvz.entities.mobs.plants.EntitySnowPea;
+import com.countrygamer.pvz.entities.mobs.plants.EntitySunflower;
+import com.countrygamer.pvz.entities.mobs.plants.EntityThreePeater;
+import com.countrygamer.pvz.entities.mobs.plants.EntityWalnut;
+import com.countrygamer.pvz.entities.mobs.zombies.EntityExplorerZombie;
+import com.countrygamer.pvz.entities.mobs.zombies.EntityFlagZombie;
+import com.countrygamer.pvz.entities.mobs.zombies.EntityFootballZombie;
+import com.countrygamer.pvz.entities.projectiles.EntityCreeperPod;
+import com.countrygamer.pvz.entities.projectiles.EntityMoonlight;
+import com.countrygamer.pvz.entities.projectiles.EntityPeaPod;
+import com.countrygamer.pvz.entities.projectiles.EntityShroomPod;
+import com.countrygamer.pvz.entities.projectiles.EntitySnowPod;
+import com.countrygamer.pvz.entities.projectiles.EntitySunlight;
+
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.registry.TickRegistry;
-import cpw.mods.fml.relauncher.Side;
 
 public class ClientProxy extends ServerProxy {
 	public void registerRenderThings() {
@@ -102,18 +101,18 @@ public class ClientProxy extends ServerProxy {
 				EntityExplorerZombie.class, new RenderZombie());
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityPeaPod.class,
-				new RenderSnowball(PvZ_Main.peaPod));
+				new RenderSnowball(PvZ.peaPod));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySnowPod.class,
-				new RenderSnowball(PvZ_Main.snowPod));
+				new RenderSnowball(PvZ.snowPod));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySunlight.class,
-				new RenderSnowball(PvZ_Main.sunlight));
+				new RenderSnowball(PvZ.sunlight));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMoonlight.class,
-				new RenderSnowball(PvZ_Main.moonlight));
+				new RenderSnowball(PvZ.moonlight));
 		RenderingRegistry.registerEntityRenderingHandler(EntityShroomPod.class,
-				new RenderSnowball(PvZ_Main.shroomPod));
+				new RenderSnowball(PvZ.shroomPod));
 		RenderingRegistry
 				.registerEntityRenderingHandler(EntityCreeperPod.class,
-						new RenderSnowball(PvZ_Main.creeperPod));
+						new RenderSnowball(PvZ.creeperPod));
 
 	}
 
@@ -123,6 +122,5 @@ public class ClientProxy extends ServerProxy {
 	}
 
 	public void registerTickHandler() {
-		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
 	}
 }

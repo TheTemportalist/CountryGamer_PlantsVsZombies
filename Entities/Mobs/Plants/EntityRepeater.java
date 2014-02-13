@@ -1,46 +1,44 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Plants;
+package com.countrygamer.pvz.entities.mobs.plants;
 
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntityPeaPod;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIArrowAttack;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class EntityRepeater extends EntityPlantShooterBase
-{
-  public EntityRepeater(World par1World)
-  {
-    super(par1World, new ItemStack(PvZ_Main.basicPlants, 1, 3));
+import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.entities.projectiles.EntityPeaPod;
 
-    setTexture("/mods/CountryGamer_PlantsVsZombies/textures/mobs/Pea Shooter.png");
-  }
+public class EntityRepeater extends EntityPlantShooterBase {
+	public EntityRepeater(World par1World) {
+		super(par1World, new ItemStack(PvZ.basicPlants, 1, 3));
 
-  protected void dropFewItems(boolean par1, int par2) {
-    dropItem(PvZ_Main.peaPod.itemID, 2);
-  }
+		setTexture("/mods/CountryGamer_PlantsVsZombies/textures/mobs/Pea Shooter.png");
+	}
 
-  public EntityThrowable entitySelect(World world)
-  {
-    EntityPeaPod ent = new EntityPeaPod(world, this);
-    return ent;
-  }
+	protected void dropFewItems(boolean par1, int par2) {
+		dropItem(PvZ.peaPod, 2);
+	}
 
-  public void ai()
-  {
-    this.tasks.addTask(1, new EntityAIArrowAttack(this, 0.0D, 25, this.range));
+	public EntityThrowable entitySelect(World world) {
+		EntityPeaPod ent = new EntityPeaPod(world, this);
+		return ent;
+	}
 
-    this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, true, false, IMob.mobSelector));
+	public void ai() {
+		this.tasks.addTask(1, new EntityAIArrowAttack(this, 0.0D, 25,
+				this.range));
 
-    this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
-    this.tasks.addTask(10, new EntityAILookIdle(this));
-  }
+		this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this,
+				EntityLiving.class, 0, true, false, IMob.mobSelector));
+
+		this.tasks.addTask(9, new EntityAIWatchClosest(this,
+				EntityPlayer.class, 6.0F));
+		this.tasks.addTask(10, new EntityAILookIdle(this));
+	}
 }

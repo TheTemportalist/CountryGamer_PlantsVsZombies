@@ -1,4 +1,4 @@
-package CountryGamer_PlantsVsZombies.Entities.Projectiles;
+package com.countrygamer.pvz.entities.projectiles;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

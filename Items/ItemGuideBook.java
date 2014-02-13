@@ -1,24 +1,24 @@
-package CountryGamer_PlantsVsZombies.Items;
+package com.countrygamer.pvz.items;
 
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemGuideBook extends ItemBase
-{
-  public ItemGuideBook(int id)
-  {
-    super(id);
-  }
+import com.countrygamer.countrygamer_core.Items.ItemBase;
+import com.countrygamer.pvz.PvZ;
 
-  public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
-  {
-    if (world.isRemote) {
-      player.openGui(PvZ_Main.instance, 3, world, (int)player.posX, (int)player.posY, (int)player.posZ);
-    }
+public class ItemGuideBook extends ItemBase {
+	public ItemGuideBook(String modid, String name) {
+		super(modid, name);
+	}
 
-    return itemStack;
-  }
+	public ItemStack onItemRightClick(ItemStack itemStack, World world,
+			EntityPlayer player) {
+		if (world.isRemote) {
+			player.openGui(PvZ.instance, 3, world, (int) player.posX,
+					(int) player.posY, (int) player.posZ);
+		}
+
+		return itemStack;
+	}
 }

@@ -1,35 +1,34 @@
-package CountryGamer_PlantsVsZombies.Items;
+package com.countrygamer.pvz.items;
 
-import java.util.Random;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.entity.projectile.EntitySnowball;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemPodBase extends ItemBase
-{
-  public ItemPodBase(int id)
-  {
-    super(id);
-  }
+import com.countrygamer.countrygamer_core.Items.ItemBase;
 
-  public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
-    if ((player.capabilities.isCreativeMode) || (player.inventory.consumeInventoryItem(Item.stick.itemID)))
-    {
-      world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (Item.itemRand.nextFloat() * 0.4F + 0.8F));
-      if (!world.isRemote) {
-        spawnCustomEntity(world, player);
-      }
-    }
+public class ItemPodBase extends ItemBase {
+	public ItemPodBase(String modid, String name) {
+		super(modid, name);
+	}
 
-    return itemStack;
-  }
+	public ItemStack onItemRightClick(ItemStack itemStack, World world,
+			EntityPlayer player) {
+		if ((player.capabilities.isCreativeMode)
+				|| (player.inventory.consumeInventoryItem(Items.stick))) {
+			world.playSoundAtEntity(player, "random.bow", 0.5F,
+					0.4F / (Item.itemRand.nextFloat() * 0.4F + 0.8F));
+			if (!world.isRemote) {
+				spawnCustomEntity(world, player);
+			}
+		}
 
-  public void spawnCustomEntity(World world, EntityPlayer player)
-  {
-    world.spawnEntityInWorld(new EntitySnowball(world, player));
-  }
+		return itemStack;
+	}
+
+	public void spawnCustomEntity(World world, EntityPlayer player) {
+		world.spawnEntityInWorld(new EntitySnowball(world, player));
+	}
 }

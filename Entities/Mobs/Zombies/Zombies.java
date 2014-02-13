@@ -1,53 +1,45 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Zombies;
+package com.countrygamer.pvz.entities.mobs.zombies;
 
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntDec;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.client.renderer.entity.RenderZombie;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityList.EntityEggInfo;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.entities.mobs.plants.EntDec;
+
+import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class Zombies {
 	public static int primaryColor = 2999465;
 	public static int mobID = 100;
+	public static BiomeGenBase[] spawnBiomes = { BiomeGenBase.desert,
+			BiomeGenBase.extremeHills, BiomeGenBase.forest, BiomeGenBase.hell,
+			BiomeGenBase.jungle, BiomeGenBase.taiga, BiomeGenBase.swampland,
+			BiomeGenBase.plains, BiomeGenBase.beach };
 
 	public static void zombies(int mobid) {
 		mobID = mobid;
-
-		BiomeGenBase[] spawnBiomes = { BiomeGenBase.desert,
-				BiomeGenBase.extremeHills, BiomeGenBase.forest,
-				BiomeGenBase.hell, BiomeGenBase.jungle, BiomeGenBase.taiga,
-				BiomeGenBase.swampland, BiomeGenBase.plains, BiomeGenBase.beach };
-
-		EntityRegistry.registerGlobalEntityID(EntityFootballZombie.class,
-				"Football Zombie", ++mobID);
-		EntityRegistry.addSpawn(EntityFootballZombie.class, 20, 2, 6,
-				EnumCreatureType.monster, spawnBiomes);
-		EntityRegistry.findGlobalUniqueEntityId();
-		EntDec.registerEntityEgg(EntityFootballZombie.class, primaryColor,
-				16711680);
-		LanguageRegistry.instance().addStringLocalization(
-				"entity.Football Zombie.name", "Football Zombie");
 		
-		EntityRegistry.registerGlobalEntityID(EntityFlagZombie.class,
-				"Flag Zombie", ++mobID);
-		EntityRegistry.addSpawn(EntityFlagZombie.class, 20, 2, 6,
-				EnumCreatureType.monster, spawnBiomes);
-		EntityRegistry.findGlobalUniqueEntityId();
-		EntDec.registerEntityEgg(EntityFlagZombie.class, primaryColor, 0);
-		LanguageRegistry.instance().addStringLocalization(
-				"entity.Flag Zombie.name", "Flag Zombie");
-		
-		EntityRegistry.registerGlobalEntityID(EntityExplorerZombie.class,
-				"Explorer Zombie", ++mobID);
-		EntityRegistry.addSpawn(EntityExplorerZombie.class, 20, 2, 6,
-				EnumCreatureType.monster, spawnBiomes);
-		EntityRegistry.findGlobalUniqueEntityId();
-		EntDec.registerEntityEgg(EntityExplorerZombie.class, primaryColor, 0);
-		LanguageRegistry.instance().addStringLocalization(
-				"entity.Explorer Zombie.name", "Explorer Zombie");
+		Zombies.createZombie("Football", EntityFootballZombie.class, mobID++, 16711680);
+		Zombies.createZombie("Flag", EntityFlagZombie.class, mobID++, 0);
+		Zombies.createZombie("Explorer", EntityExplorerZombie.class, mobID++, 0);
 		
 		mobid = mobID;
 	}
+
+	public static void createZombie(String name,
+			Class<? extends EntityLiving> entityClass, int id,
+			int secondaryColor) {
+		EntityRegistry.registerModEntity(entityClass, name, id, PvZ.instance,
+				80, 3, true);
+		EntityList.IDtoClassMapping.put(id, entityClass);
+		EntityList.entityEggs.put(Integer.valueOf(id), new EntityEggInfo(id,
+				primaryColor, secondaryColor));
+		EntityRegistry.addSpawn(entityClass, 20, 2, 6,
+				EnumCreatureType.monster, spawnBiomes);
+
+	}
+
 }

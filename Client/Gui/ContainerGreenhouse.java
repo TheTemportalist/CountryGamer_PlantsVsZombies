@@ -1,11 +1,12 @@
-package CountryGamer_PlantsVsZombies.Client.Gui;
+package com.countrygamer.pvz.client.gui;
 
-import CountryGamer_PlantsVsZombies.PvZ_Util;
-import CountryGamer_PlantsVsZombies.Blocks.TileEnts.TileEntityGreenhouse;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
+
+import com.countrygamer.pvz.blocks.tiles.TileEntityGreenhouse;
+import com.countrygamer.pvz.lib.Util;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -88,15 +89,15 @@ public class ContainerGreenhouse extends Container
       itemstack = itemStack1.copy();
 
       if ((slotID != 0) && (slotID != 1) && (slotID != 2) && (slotID != 3)) {
-        if (PvZ_Util.isItemInput(itemStack1)) {
+        if (Util.isItemInput(itemStack1)) {
           if (!mergeItemStack(itemStack1, 0, 1, false)) {
             return null;
           }
-          if (PvZ_Util.isItemModify1(itemStack1)) {
+          if (Util.isItemModify1(itemStack1)) {
             if (!mergeItemStack(itemStack1, 1, 2, false)) {
               return null;
             }
-            if (PvZ_Util.isItemModify2(itemStack1)) {
+            if (Util.isItemModify2(itemStack1)) {
               if (!mergeItemStack(itemStack1, 2, 3, false)) {
                 return null;
               }

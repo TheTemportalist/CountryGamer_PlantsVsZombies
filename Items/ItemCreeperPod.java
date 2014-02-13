@@ -1,38 +1,34 @@
-package CountryGamer_PlantsVsZombies.Items;
+package com.countrygamer.pvz.items;
 
 import java.util.Random;
 
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntityCreeperPod;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.entity.player.PlayerCapabilities;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemCreeperPod extends ItemPodBase
-{
-  public ItemCreeperPod(int id)
-  {
-    super(id);
-  }
+import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.entities.projectiles.EntityCreeperPod;
 
-  public void spawnCustomEntity(World world, EntityPlayer player)
-  {
-    world.spawnEntityInWorld(new EntityCreeperPod(world, player));
-  }
+public class ItemCreeperPod extends ItemPodBase {
+	public ItemCreeperPod(String modid, String name) {
+		super(modid, name);
+	}
 
-  public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
-  {
-    if ((player.capabilities.isCreativeMode) || (player.inventory.consumeInventoryItem(PvZ_Main.creeperPod.itemID)))
-    {
-      world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (Item.itemRand.nextFloat() * 0.4F + 0.8F));
-      if (!world.isRemote) {
-        spawnCustomEntity(world, player);
-      }
-    }
+	public void spawnCustomEntity(World world, EntityPlayer player) {
+		world.spawnEntityInWorld(new EntityCreeperPod(world, player));
+	}
 
-    return itemStack;
-  }
+	public ItemStack onItemRightClick(ItemStack itemStack, World world,
+			EntityPlayer player) {
+		if ((player.capabilities.isCreativeMode)
+				|| (player.inventory.consumeInventoryItem(PvZ.creeperPod))) {
+			world.playSoundAtEntity(player, "random.bow", 0.5F,
+					0.4F / ((new Random()).nextFloat() * 0.4F + 0.8F));
+			if (!world.isRemote) {
+				spawnCustomEntity(world, player);
+			}
+		}
+
+		return itemStack;
+	}
 }

@@ -1,7 +1,8 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Plants;
+package com.countrygamer.pvz.entities.mobs.plants;
 
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntityCreeperPod;
+import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.entities.projectiles.EntityCreeperPod;
+
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIArrowAttack;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -18,7 +19,7 @@ public class EntityCreeperRepeater extends EntityPlantShooterBase
 {
   public EntityCreeperRepeater(World par1World)
   {
-    super(par1World, new ItemStack(PvZ_Main.basicPlants, 1, 1));
+    super(par1World, new ItemStack(PvZ.basicPlants, 1, 1));
   }
 
   public boolean canAttackClass(Class par1Class)

@@ -1,61 +1,56 @@
-package CountryGamer_PlantsVsZombies.Items;
+package com.countrygamer.pvz.items;
 
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import CountryGamer_PlantsVsZombies.PvZ_Util;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityPlantBase;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 import net.minecraft.world.World;
 
-public class ItemTrowel extends ItemTool
-{
-  public ItemTrowel(int id)
-  {
-    super(id, 2.0F, EnumToolMaterial.IRON, new Block[] { Block.dirt, Block.grass });
+import com.countrygamer.countrygamer_core.Items.ItemToolBase;
+import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.entities.mobs.plants.EntityPlantBase;
+import com.countrygamer.pvz.lib.Util;
 
-    setCreativeTab(PvZ_Main.pvzTab);
-  }
+public class ItemTrowel extends ItemToolBase {
+	
+	public ItemTrowel(String modid, String name, float damageVsEntity,
+			Item.ToolMaterial material, Block[] validBlocks) {
+		super(modid, name, damageVsEntity, material, validBlocks);
+	}
 
-  public void registerIcons(IconRegister iconReg) {
-    this.itemIcon = iconReg.registerIcon(PvZ_Main.base_Tex + getUnlocalizedName().substring(5));
-  }
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer player,
+			World world, int x, int y, int z, int side, float xOffset,
+			float yOffset, float zOffset) {
+		Block block = world.getBlock(x, y, z);
+		if (block == PvZ.endowedGrass) {
+			world.setBlock(x, y, z, Blocks.dirt);
+			Util.spawnItem(world, x, y, z, new ItemStack(PvZ.sunlight, 1));
+			return true;
+		}
+		if (block == PvZ.darkenedGrass) {
+			world.setBlock(x, y, z, Blocks.dirt);
+			Util.spawnItem(world, x, y, z, new ItemStack(PvZ.moonlight, 1));
+			return true;
+		}
+		return false;
+	}
 
-  public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float xOffset, float yOffset, float zOffset)
-  {
-    int blockid = world.getBlockId(x, y, z);
-    if (blockid == PvZ_Main.endowedGrass.blockID) {
-      world.setBlock(x, y, z, Block.dirt.blockID);
-      PvZ_Util.spawnItem(world, x, y, z, new ItemStack(PvZ_Main.sunlight, 1));
-      return true;
-    }
-    if (blockid == PvZ_Main.darkenedGrass.blockID) {
-      world.setBlock(x, y, z, Block.dirt.blockID);
-      PvZ_Util.spawnItem(world, x, y, z, new ItemStack(PvZ_Main.moonlight, 1));
-      return true;
-    }
-    return false;
-  }
+	public boolean itemInteractionForEntity(ItemStack itemStack,
+			EntityPlayer player, EntityLivingBase entity) {
+		if (entity.worldObj.isRemote)
+			return false;
 
-  public boolean itemInteractionForEntity(ItemStack itemStack, EntityPlayer player, EntityLivingBase entity)
-  {
-    if (entity.worldObj.isRemote) return false;
+		if ((entity instanceof EntityPlantBase)) {
+			uproot(itemStack, player, (EntityPlantBase) entity);
+			return true;
+		}
+		return false;
+	}
 
-    if ((entity instanceof EntityPlantBase))
-    {
-      uproot(itemStack, player, (EntityPlantBase)entity);
-      return true;
-    }
-    return false;
-  }
-
-  public void uproot(ItemStack itemStack, EntityPlayer player, EntityPlantBase entity)
-  {
-    entity.setDead();
-  }
+	public void uproot(ItemStack itemStack, EntityPlayer player,
+			EntityPlantBase entity) {
+		entity.setDead();
+	}
 }

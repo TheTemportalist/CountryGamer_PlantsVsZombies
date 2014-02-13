@@ -1,33 +1,31 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Plants;
+package com.countrygamer.pvz.entities.mobs.plants;
 
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntityPeaPod;
+import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.entities.projectiles.EntityPeaPod;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class EntityPeaShooter extends EntityPlantShooterBase
-{
-  public EntityPeaShooter(World par1World)
-  {
-    super(par1World, new ItemStack(PvZ_Main.basicPlants, 1, 1));
+public class EntityPeaShooter extends EntityPlantShooterBase {
+	public EntityPeaShooter(World par1World) {
+		super(par1World, new ItemStack(PvZ.basicPlants, 1, 1));
 
-    setTexture("/mods/CountryGamer_PlantsVsZombies/textures/mobs/Pea Shooter.png");
-  }
-  protected int getDropItemId() {
-    return PvZ_Main.peaPod.itemID;
-  }
+		setTexture("/mods/CountryGamer_PlantsVsZombies/textures/mobs/Pea Shooter.png");
+	}
 
-  public boolean interact(EntityPlayer par1EntityPlayer)
-  {
-    return false;
-  }
+	protected Item getDropItem() {
+		return PvZ.peaPod;
+	}
 
-  public EntityThrowable entitySelect(World world)
-  {
-    EntityPeaPod ent = new EntityPeaPod(world, this);
-    return ent;
-  }
+	public boolean interact(EntityPlayer par1EntityPlayer) {
+		return false;
+	}
+
+	public EntityThrowable entitySelect(World world) {
+		EntityPeaPod ent = new EntityPeaPod(world, this);
+		return ent;
+	}
 }

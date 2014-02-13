@@ -1,20 +1,21 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Zombies;
+package com.countrygamer.pvz.entities.mobs.zombies;
 
 import java.util.List;
 import java.util.Random;
+
+import com.countrygamer.pvz.PvZ;
 
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
-import CountryGamer_PlantsVsZombies.PvZ_Main;
 
 public class EntityFlagZombie extends EntityZombie {
 
 	public EntityFlagZombie(World world) {
 		super(world);
 
-		this.setCurrentItemOrArmor(0, new ItemStack(PvZ_Main.flag));
+		this.setCurrentItemOrArmor(0, new ItemStack(PvZ.flag));
 	}
 	
 	/*

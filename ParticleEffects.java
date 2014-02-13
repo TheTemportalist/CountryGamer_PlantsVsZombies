@@ -1,8 +1,9 @@
-package CountryGamer_PlantsVsZombies;
+package com.countrygamer.pvz;
 
 import java.util.Random;
 
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntityPodPop;
+import com.countrygamer.pvz.entities.projectiles.EntityPodPop;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.client.particle.EntityFX;

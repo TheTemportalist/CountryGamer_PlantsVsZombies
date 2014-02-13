@@ -1,20 +1,17 @@
-package CountryGamer_PlantsVsZombies.Client.Gui;
+package com.countrygamer.pvz.client.gui;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import CountryGamer_PlantsVsZombies.Blocks.TileEnts.TileEntityGreenhouse;
+import com.countrygamer.pvz.blocks.tiles.TileEntityGreenhouse;
+import com.countrygamer.pvz.lib.Reference;
 
 public class GuiGreenhouse extends GuiContainer {
 	public static final ResourceLocation bkgd = new ResourceLocation(
-			"countrygamer_plantsvszombies", "textures/gui/greenhouse.png");
+			Reference.MOD_ID, "textures/gui/greenhouse.png");
 	private TileEntityGreenhouse tileEnt;
 
 	public GuiGreenhouse(InventoryPlayer invPlayer, TileEntityGreenhouse tileEnt) {
@@ -23,10 +20,9 @@ public class GuiGreenhouse extends GuiContainer {
 	}
 
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
-		String s = this.tileEnt.getInvName();
-		this.fontRenderer.drawString(s,
-				this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6,
-				4210752);
+		String s = this.tileEnt.getInventoryName();
+		this.fontRendererObj.drawString(s, this.xSize / 2
+				- this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
 	}
 
 	protected void drawGuiContainerBackgroundLayer(float par1, int par2,

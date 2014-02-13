@@ -1,51 +1,50 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Plants;
+package com.countrygamer.pvz.entities.mobs.plants;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class EntityWalnut extends EntityPlantBase
-{
-  public EntityWalnut(World par1World)
-  {
-    super(par1World, new ItemStack(PvZ_Main.sunlight, 1, 0));
-  }
+import com.countrygamer.pvz.PvZ;
 
-  protected void applyEntityAttributes()
-  {
-    super.applyEntityAttributes();
-    setMaxHealth(PvZ_Main.basePlantHealth * 16);
-    getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(this.baseHealth);
-  }
+public class EntityWalnut extends EntityPlantBase {
+	public EntityWalnut(World par1World) {
+		super(par1World, new ItemStack(PvZ.sunlight, 1, 0));
+	}
 
-  public void onEntityUpdate()
-  {
-    super.onEntityUpdate();
+	protected void applyEntityAttributes() {
+		super.applyEntityAttributes();
+		setMaxHealth(PvZ.basePlantHealth * 16);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(
+				this.baseHealth);
+	}
 
-    int r = 10;
-    List rEntities = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.posX - r, this.posY, this.posZ - r, this.posX + r, this.posY + 1.0D, this.posZ + r));
+	public void onEntityUpdate() {
+		super.onEntityUpdate();
 
-    ArrayList otherMob = new ArrayList();
-    for (int i = 0; i < rEntities.size(); i++) {
-      EntityLivingBase ent = (EntityLivingBase)rEntities.get(i);
-      if ((ent.getCreatureAttribute() == PvZ_Main.plantAttribute) || ((ent instanceof EntityPlayer)))
-      {
-        rEntities.remove(ent);
-        otherMob.add(ent);
-      } else {
-        if ((((EntityCreature)ent).getEntityToAttack() instanceof EntityWalnut))
-          continue;
-      }
-    }
-  }
+		int r = 10;
+		List rEntities = this.worldObj.getEntitiesWithinAABB(
+				EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.posX
+						- r, this.posY, this.posZ - r, this.posX + r,
+						this.posY + 1.0D, this.posZ + r));
+
+		ArrayList otherMob = new ArrayList();
+		for (int i = 0; i < rEntities.size(); i++) {
+			EntityLivingBase ent = (EntityLivingBase) rEntities.get(i);
+			if ((ent.getCreatureAttribute() == PvZ.plantAttribute)
+					|| ((ent instanceof EntityPlayer))) {
+				rEntities.remove(ent);
+				otherMob.add(ent);
+			} else {
+				if ((((EntityCreature) ent).getEntityToAttack() instanceof EntityWalnut))
+					continue;
+			}
+		}
+	}
 }

@@ -1,28 +1,25 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Plants;
+package com.countrygamer.pvz.entities.mobs.plants;
 
-import java.util.Random;
-
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import com.countrygamer.pvz.PvZ;
 
 public class EntityFumeShroom extends EntityShroomShooterBase
 {
   public int min = 1; public int max = 6;
 
-  public EntityFumeShroom(World world) { super(world, new ItemStack(PvZ_Main.nightPlants, 1, 2));
+  public EntityFumeShroom(World world) { super(world, new ItemStack(PvZ.nightPlants, 1, 2));
   }
 
   public void dropFewItems(boolean par1, int par2)
   {
     int numbPods = this.min + (int)(Math.random() * (this.max - this.min + 1));
 
-    dropItem(PvZ_Main.shroomPod.itemID, numbPods);
+    dropItem(PvZ.shroomPod, numbPods);
   }
 
   public void attackEntityWithRangedAttack(EntityLivingBase entitylivingbase, float f)

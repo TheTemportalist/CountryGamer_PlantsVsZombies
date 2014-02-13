@@ -1,11 +1,12 @@
-package CountryGamer_PlantsVsZombies.Items;
+package com.countrygamer.pvz.items;
 
-import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.ItemArmor;
 
-public class ItemFootballHelm extends ItemArmorBase
-{
-  public ItemFootballHelm(int id, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4)
-  {
-    super(id, par2EnumArmorMaterial, par3, par4);
-  }
+import com.countrygamer.countrygamer_core.Items.ItemArmorBase;
+
+public class ItemFootballHelm extends ItemArmorBase {
+	public ItemFootballHelm(String modid, String name,
+			ItemArmor.ArmorMaterial mat, int slot, int armorType) {
+		super(modid, name, mat, slot, armorType, "football_layer_1");
+	}
 }

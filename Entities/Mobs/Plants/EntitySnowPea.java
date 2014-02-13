@@ -1,27 +1,26 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Plants;
+package com.countrygamer.pvz.entities.mobs.plants;
 
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import CountryGamer_PlantsVsZombies.Entities.Projectiles.EntitySnowPod;
+import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.entities.projectiles.EntitySnowPod;
+
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class EntitySnowPea extends EntityPlantShooterBase
-{
-  public EntitySnowPea(World par1World)
-  {
-    super(par1World, new ItemStack(PvZ_Main.basicPlants, 1, 2));
+public class EntitySnowPea extends EntityPlantShooterBase {
+	public EntitySnowPea(World par1World) {
+		super(par1World, new ItemStack(PvZ.basicPlants, 1, 2));
 
-    setTexture("/mods/CountryGamer_PlantsVsZombies/textures/mobs/Snow Pea.png");
-  }
-  protected int getDropItemId() {
-    return PvZ_Main.snowPod.itemID;
-  }
+		setTexture("/mods/CountryGamer_PlantsVsZombies/textures/mobs/Snow Pea.png");
+	}
 
-  public EntityThrowable entitySelect(World world)
-  {
-    EntitySnowPod ent = new EntitySnowPod(world, this);
-    return ent;
-  }
+	protected Item getDropItem() {
+		return PvZ.snowPod;
+	}
+
+	public EntityThrowable entitySelect(World world) {
+		EntitySnowPod ent = new EntitySnowPod(world, this);
+		return ent;
+	}
 }

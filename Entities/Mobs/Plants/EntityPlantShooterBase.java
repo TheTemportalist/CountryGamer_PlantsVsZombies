@@ -1,4 +1,4 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Plants;
+package com.countrygamer.pvz.entities.mobs.plants;
 
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,7 +13,6 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import CountryGamer_PlantsVsZombies.Entities.ai.PlantFilterIMob;
 
 public class EntityPlantShooterBase extends EntityPlantBase implements
 		IRangedAttackMob {
@@ -36,7 +35,7 @@ public class EntityPlantShooterBase extends EntityPlantBase implements
 				1.0F / (getRNG().nextFloat() * 0.4F + 0.8F));
 		this.worldObj.spawnEntityInWorld(ent);
 		if (entitylivingbase instanceof EntityCreature) {
-			((EntityCreature)entitylivingbase).setAttackTarget(this);
+			((EntityCreature) entitylivingbase).setAttackTarget(this);
 		}
 	}
 
@@ -50,9 +49,10 @@ public class EntityPlantShooterBase extends EntityPlantBase implements
 				this.range));
 
 		this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this,
-		 EntityLivingBase.class, 0, true, false, PlantFilterIMob.selector));
-		//this.targetTasks.addTask(1, new EntityAIPlantTarget(this, true, false,
-		//		EntityLivingBase.class, PlantFilterIMob.selector, this.range));
+				EntityLivingBase.class, 0, true, false, new PlantFilterIMob()));
+		// this.targetTasks.addTask(1, new EntityAIPlantTarget(this, true,
+		// false,
+		// EntityLivingBase.class, PlantFilterIMob.selector, this.range));
 
 		this.tasks.addTask(9, new EntityAIWatchClosest(this,
 				EntityPlayer.class, 6.0F));

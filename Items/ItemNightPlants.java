@@ -1,134 +1,98 @@
-package CountryGamer_PlantsVsZombies.Items;
-
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import CountryGamer_PlantsVsZombies.PvZ_Util;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityFumeShroom;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityMoonShroom;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityPuffShroom;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntityScaredyShroom;
-import CountryGamer_PlantsVsZombies.Entities.Mobs.Plants.EntitySunflower;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-import java.util.List;
+package com.countrygamer.pvz.items;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.entity.player.PlayerCapabilities;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class ItemNightPlants extends ItemBase
-{
-  public static final String[] itemMetaNames = { "puffShroomPlant", "scaredyShroomPlant", "fumeShroomPlant", "moonShroomPlant" };
+import com.countrygamer.countrygamer_core.Items.ItemMetadataBase;
+import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.entities.mobs.plants.EntityFumeShroom;
+import com.countrygamer.pvz.entities.mobs.plants.EntityMoonShroom;
+import com.countrygamer.pvz.entities.mobs.plants.EntityPuffShroom;
+import com.countrygamer.pvz.entities.mobs.plants.EntityScaredyShroom;
+import com.countrygamer.pvz.entities.mobs.plants.EntitySunflower;
+import com.countrygamer.pvz.lib.Util;
 
-  public static final String[] itemGameNames = { "Puff-shroom Plant", "Scaredy-shroom Plant", "Fume-shroom Plant", "Moon-shroom Plant" };
+public class ItemNightPlants extends ItemMetadataBase {
+	public static final String[] itemGameNames = { "Puff-shroom Plant",
+			"Scaredy-shroom Plant", "Fume-shroom Plant", "Moon-shroom Plant" };
 
-  public static String base_Tex = PvZ_Main.base_Tex;
-  public static final String[] item_a = { base_Tex + "puffShroomPlant", base_Tex + "scaredyShroomPlant", base_Tex + "fumeShroomPlant", base_Tex + "moonShroomPlant" };
+	public boolean onGround = false;
 
-  @SideOnly(Side.CLIENT)
-  private Icon[] item_b;
-  public boolean onGround = false;
+	public ItemNightPlants(String modid) {
+		super(modid, itemGameNames);
+	}
 
-  public ItemNightPlants(int id)
-  {
-    super(id);
-    setHasSubtypes(true);
-    setMaxDamage(0);
-  }
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer player,
+			World world, int x, int y, int z, int side, float xOffset,
+			float yOffset, float zOffset) {
+		EntityLiving ent = null;
 
-  @SideOnly(Side.CLIENT)
-  public Icon getIconFromDamage(int itemId)
-  {
-    int j = MathHelper.clamp_int(itemId, 0, itemMetaNames.length - 1);
-    return this.item_b[j];
-  }
-  public String getUnlocalizedName(ItemStack itemStack) {
-    int i = MathHelper.clamp_int(itemStack.getItemDamage(), 0, itemMetaNames.length - 1);
-    return super.getUnlocalizedName() + "." + itemMetaNames[i];
-  }
-  @SideOnly(Side.CLIENT)
-  public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List) { for (int i = 0; i < itemMetaNames.length; i++)
-      par3List.add(new ItemStack(par1, 1, i));
-  }
+		if (!player.canPlayerEdit(x, y, z, side, itemStack)) {
+			return false;
+		}
+		switch (itemStack.getItemDamage()) {
+		case 0:
+			ent = new EntityPuffShroom(world);
+			break;
+		case 1:
+			ent = new EntityScaredyShroom(world);
+			break;
+		case 2:
+			ent = new EntityFumeShroom(world);
+			break;
+		case 3:
+			ent = new EntityMoonShroom(world);
+			break;
+		default:
+			ent = new EntitySunflower(world);
+		}
 
-  public void registerIcons(IconRegister iconReg)
-  {
-    this.item_b = new Icon[item_a.length];
-    for (int i = 0; i < item_a.length; i++)
-      this.item_b[i] = iconReg.registerIcon(item_a[i]);
-  }
+		baseItemUse(world, player, x, y, z, ent, itemStack);
+		return true;
+	}
 
-  public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float xOffset, float yOffset, float zOffset)
-  {
-    EntityLiving ent = null;
+	public void baseItemUse(World world, EntityPlayer player, int x, int y,
+			int z, EntityLiving par0Entity, ItemStack itemStack) {
+		EntityLiving ent = par0Entity;
+		if (world.getBlock(x, y + 1, z) == null) {
+			Block blockUnder = world.getBlock(x, y, z);
+			if ((blockUnder == PvZ.darkenedGrass)
+					|| (blockUnder == Blocks.waterlily)) {
+				if (blockUnder == PvZ.darkenedGrass)
+					this.onGround = true;
+				if (blockUnder == Blocks.waterlily)
+					this.onGround = false;
+				if (player.capabilities.isCreativeMode) {
+					itemUsed(ent, x, y, z, world);
+				} else {
+					ItemStack thisItem = new ItemStack(this, 1,
+							itemStack.getItemDamage());
+					if (player.inventory.hasItemStack(thisItem)) {
+						Util.removeItem(player, thisItem);
+						itemUsed(ent, x, y, z, world);
+					}
+				}
+			}
+		}
+	}
 
-    if (!player.canPlayerEdit(x, y, z, side, itemStack)) {
-      return false;
-    }
-    switch (itemStack.getItemDamage()) {
-    case 0:
-      ent = new EntityPuffShroom(world);
-      break;
-    case 1:
-      ent = new EntityScaredyShroom(world);
-      break;
-    case 2:
-      ent = new EntityFumeShroom(world);
-      break;
-    case 3:
-      ent = new EntityMoonShroom(world);
-      break;
-    default:
-      ent = new EntitySunflower(world);
-    }
+	public void itemUsed(EntityLiving ent, int x, int y, int z, World world) {
+		if (this.onGround) {
+			ent.setLocationAndAngles(x + 0.5D, y + 1, z + 0.5D, 0.0F, 0.0F);
 
-    baseItemUse(world, player, x, y, z, ent, itemStack);
-    return true;
-  }
+			if (!world.isRemote) {
+				world.spawnEntityInWorld(ent);
+				world.setBlock(x, y, z, Blocks.grass);
+			}
+		} else {
+			ent.setLocationAndAngles(x + 0.5D, y, z + 0.5D, 0.0F, 0.0F);
 
-  public void baseItemUse(World world, EntityPlayer player, int x, int y, int z, EntityLiving par0Entity, ItemStack itemStack) {
-    EntityLiving ent = par0Entity;
-    if (world.getBlockId(x, y + 1, z) == 0)
-    {
-      int blockUnder = world.getBlockId(x, y, z);
-      if ((blockUnder == PvZ_Main.darkenedGrass.blockID) || (blockUnder == Block.waterlily.blockID))
-      {
-        if (blockUnder == PvZ_Main.darkenedGrass.blockID) this.onGround = true;
-        if (blockUnder == Block.waterlily.blockID) this.onGround = false;
-        if (player.capabilities.isCreativeMode) {
-          itemUsed(ent, x, y, z, world);
-        } else {
-          ItemStack thisItem = new ItemStack(this, 1, itemStack.getItemDamage());
-          if (player.inventory.hasItemStack(thisItem)) {
-            PvZ_Util.removeItem(player, thisItem);
-            itemUsed(ent, x, y, z, world);
-          }
-        }
-      }
-    }
-  }
-
-  public void itemUsed(EntityLiving ent, int x, int y, int z, World world) {
-    if (this.onGround) {
-      ent.setLocationAndAngles(x + 0.5D, y + 1, z + 0.5D, 0.0F, 0.0F);
-
-      if (!world.isRemote) {
-        world.spawnEntityInWorld(ent);
-        world.setBlock(x, y, z, Block.grass.blockID);
-      }
-    } else {
-      ent.setLocationAndAngles(x + 0.5D, y, z + 0.5D, 0.0F, 0.0F);
-
-      if (!world.isRemote)
-        world.spawnEntityInWorld(ent);
-    }
-  }
+			if (!world.isRemote)
+				world.spawnEntityInWorld(ent);
+		}
+	}
 }

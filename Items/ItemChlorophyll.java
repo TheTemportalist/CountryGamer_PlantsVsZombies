@@ -1,32 +1,30 @@
-package CountryGamer_PlantsVsZombies.Items;
+package com.countrygamer.pvz.items;
 
-import CountryGamer_PlantsVsZombies.PvZ_Main;
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.entity.player.PlayerCapabilities;
-import net.minecraft.item.Item;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemChlorophyll extends ItemBase
-{
-  public ItemChlorophyll(int id)
-  {
-    super(id);
-  }
+import com.countrygamer.countrygamer_core.Items.ItemBase;
+import com.countrygamer.pvz.PvZ;
 
-  public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float xOffset, float yOffset, float zOffset)
-  {
-    if ((player.capabilities.isCreativeMode) || (player.inventory.consumeInventoryItem(this.itemID)))
-    {
-      if (world.getBlockId(x, y + 1, z) == Block.waterStill.blockID) {
-        world.setBlock(x, y + 1, z, PvZ_Main.chlorophyllLiquidStill.blockID);
-        return true;
-      }
-      return false;
-    }
+public class ItemChlorophyll extends ItemBase {
+	public ItemChlorophyll(String modid, String name) {
+		super(modid, name);
+	}
 
-    return false;
-  }
+	public boolean onItemUse(ItemStack item, EntityPlayer player, World world,
+			int x, int y, int z, int side, float xOffset, float yOffset,
+			float zOffset) {
+		if ((player.capabilities.isCreativeMode)
+				|| (player.inventory.consumeInventoryItem(this))) {
+			if (world.getBlock(x, y + 1, z) == Blocks.water) {
+				//world.setBlock(x, y + 1, z, PvZ.chlorophyllLiquidStill);
+				return true;
+			}
+			return false;
+		}
+
+		return false;
+	}
 }

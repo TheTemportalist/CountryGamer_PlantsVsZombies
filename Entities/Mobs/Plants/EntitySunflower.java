@@ -1,10 +1,11 @@
-package CountryGamer_PlantsVsZombies.Entities.Mobs.Plants;
+package com.countrygamer.pvz.entities.mobs.plants;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import CountryGamer_PlantsVsZombies.PvZ_Main;
+import com.countrygamer.pvz.PvZ;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,54 +18,54 @@ import net.minecraft.world.World;
 
 public class EntitySunflower extends EntityPlantBase
 {
-  private int delayControl = 600;
+	private int delayControl = 600;
 
-  public EntitySunflower(World par1World)
-  {
-    super(par1World, new ItemStack(PvZ_Main.basicPlants, 1, 0));
-  }
+	public EntitySunflower(World par1World)
+	{
+		super(par1World, new ItemStack(PvZ.basicPlants, 1, 0));
+	}
 
-  public void dropFewItems(boolean par1, int par2)
-  {
-    dropItem(PvZ_Main.sunlight.itemID, 2);
-  }
+	public void dropFewItems(boolean par1, int par2)
+	{
+		dropItem(PvZ.sunlight, 2);
+	}
 
-  public void onLivingUpdate()
-  {
-    super.onLivingUpdate();
+	public void onLivingUpdate()
+	{
+		super.onLivingUpdate();
 
-    int r = 3;
-    List rEntities = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.posX - r, this.posY - r, this.posZ - r, this.posX + r, this.posY + r, this.posZ + r));
+		int r = 3;
+		List rEntities = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.posX - r, this.posY - r, this.posZ - r, this.posX + r, this.posY + r, this.posZ + r));
 
-    ArrayList otherMob = new ArrayList();
-    boolean wave = false;
+		ArrayList otherMob = new ArrayList();
+		boolean wave = false;
 
-    for (int i = 0; i < rEntities.size(); i++) {
-      EntityLivingBase ent = (EntityLivingBase)rEntities.get(i);
+		for (int i = 0; i < rEntities.size(); i++) {
+			EntityLivingBase ent = (EntityLivingBase)rEntities.get(i);
 
-      if (ent.getCreatureAttribute() == PvZ_Main.plantAttribute)
-      {
-        if (ent.getAITarget() != null)
-        {
-          wave = true;
-          break;
-        }
-        wave = false;
-      } else {
-        rEntities.remove(ent);
-        otherMob.add(ent);
-      }
-    }
+			if (ent.getCreatureAttribute() == PvZ.plantAttribute)
+			{
+				if (ent.getAITarget() != null)
+				{
+					wave = true;
+					break;
+				}
+				wave = false;
+			} else {
+				rEntities.remove(ent);
+				otherMob.add(ent);
+			}
+		}
 
-    int delay = this.delayControl;
-    if (delay > 0) {
-      delay--;
-      return;
-    }
-    System.out.println("Delay wave check");
-    delay = this.delayControl;
-    double z;
-    /*
+		int delay = this.delayControl;
+		if (delay > 0) {
+			delay--;
+			return;
+		}
+		System.out.println("Delay wave check");
+		delay = this.delayControl;
+		double z;
+		/*
     if (!wave) {
       for (EntityLivingBase ent : rEntities) {
         if (!(ent instanceof EntityShroomBase))
@@ -88,6 +89,6 @@ public class EntitySunflower extends EntityPlantBase
           ent1.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 500, 5));
         }
     }
-    */
-  }
+		 */
+	}
 }

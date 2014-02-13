@@ -1,4 +1,4 @@
-package CountryGamer_PlantsVsZombies;
+package com.countrygamer.pvz;
 
 import net.minecraft.potion.Potion;
 
