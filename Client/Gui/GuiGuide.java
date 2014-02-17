@@ -9,10 +9,11 @@ import org.lwjgl.opengl.GL11;
 import com.countrygamer.countrygamer_core.Client.Gui.GuiButtonArrow;
 import com.countrygamer.countrygamer_core.Client.Gui.GuiButtonArrow.ButtonType;
 import com.countrygamer.pvz.items.ItemGuideBook;
+import com.countrygamer.pvz.lib.Reference;
 
 public class GuiGuide extends GuiScreen {
 	private static final ResourceLocation book = new ResourceLocation(
-			"countrygamer_plantsvszombies", "textures/gui/book1.png");
+			Reference.MOD_ID, "textures/gui/book1.png");
 
 	private int bookImageWidth = 256;
 	private int bookImageHeight = 256;
@@ -446,10 +447,6 @@ public class GuiGuide extends GuiScreen {
 		}
 
 		super.drawScreen(i, j, f);
-	}
-
-	static ResourceLocation func_110404_g() {
-		return book;
 	}
 
 	private void string(String str, int x, int y) {
