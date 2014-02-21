@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import com.countrygamer.countrygamer_core.Blocks.BlockContainerBase;
+import com.countrygamer.countrygamer_core.block.BlockContainerBase;
 import com.countrygamer.pvz.blocks.tiles.TileEntityChlorophyllBowl;
 
 public class BlockChlorophyllBowl extends BlockContainerBase {

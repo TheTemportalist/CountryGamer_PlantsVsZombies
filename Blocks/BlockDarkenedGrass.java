@@ -4,7 +4,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
-import com.countrygamer.countrygamer_core.Blocks.BlockBase;
+import com.countrygamer.countrygamer_core.block.BlockBase;
 import com.countrygamer.pvz.PvZ;
 
 import cpw.mods.fml.relauncher.Side;

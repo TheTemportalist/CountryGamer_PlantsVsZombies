@@ -3,8 +3,8 @@ package com.countrygamer.pvz.blocks.tiles;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.countrygamer.countrygamer_core.Blocks.TileEntityInventoryBase;
 import com.countrygamer.countrygamer_core.Items.ItemBase;
+import com.countrygamer.countrygamer_core.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.lib.Util;
 

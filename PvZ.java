@@ -4,10 +4,7 @@ import java.lang.reflect.Field;
 import java.util.logging.Logger;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialLiquid;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -54,7 +51,6 @@ import com.countrygamer.pvz.items.ItemTransTrowel;
 import com.countrygamer.pvz.items.ItemTrowel;
 import com.countrygamer.pvz.lib.Reference;
 import com.countrygamer.pvz.proxy.ServerProxy;
-import com.google.common.collect.Sets;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -64,8 +60,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class PvZ {

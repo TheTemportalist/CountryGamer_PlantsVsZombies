@@ -9,7 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.countrygamer_core.Blocks.TileEntityInventoryBase;
+import com.countrygamer.countrygamer_core.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.countrygamer_core.lib.CoreUtil;
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.lib.Resources;

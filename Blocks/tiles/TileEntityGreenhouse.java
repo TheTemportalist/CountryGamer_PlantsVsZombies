@@ -6,7 +6,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
-import com.countrygamer.countrygamer_core.Blocks.TileEntityInventoryBase;
+import com.countrygamer.countrygamer_core.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.lib.Util;
 

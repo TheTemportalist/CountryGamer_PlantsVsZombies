@@ -4,19 +4,15 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-import com.countrygamer.countrygamer_core.Blocks.BlockContainerBase;
+import com.countrygamer.countrygamer_core.block.BlockContainerBase;
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.blocks.tiles.TileEntityGravestone;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockGravestone extends BlockContainerBase {
 	public int type = 0;
