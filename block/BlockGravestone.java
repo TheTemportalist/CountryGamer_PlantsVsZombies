@@ -1,4 +1,4 @@
-package com.countrygamer.pvz.blocks;
+package com.countrygamer.pvz.block;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -10,9 +10,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-import com.countrygamer.countrygamer_core.block.BlockContainerBase;
+import com.countrygamer.core.block.BlockContainerBase;
 import com.countrygamer.pvz.PvZ;
-import com.countrygamer.pvz.blocks.tiles.TileEntityGravestone;
+import com.countrygamer.pvz.block.tile.TileEntityGravestone;
 
 public class BlockGravestone extends BlockContainerBase {
 	public int type = 0;

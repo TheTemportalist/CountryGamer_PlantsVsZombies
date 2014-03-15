@@ -1,5 +1,6 @@
 package com.countrygamer.pvz.client.render;
 
+import com.countrygamer.pvz.block.plant.tile.client.model.ModelSunflower;
 import com.countrygamer.pvz.entities.mobs.plants.EntitySunflower;
 import com.countrygamer.pvz.lib.Resources;
 

@@ -1,4 +1,4 @@
-package com.countrygamer.pvz.blocks.tiles;
+package com.countrygamer.pvz.client.block.tile;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

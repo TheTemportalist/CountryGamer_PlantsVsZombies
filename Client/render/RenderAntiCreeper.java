@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
+import com.countrygamer.pvz.block.plant.tile.client.model.ModelRepeater;
 import com.countrygamer.pvz.entities.mobs.plants.EntityCreeperRepeater;
 import com.countrygamer.pvz.lib.Resources;
 

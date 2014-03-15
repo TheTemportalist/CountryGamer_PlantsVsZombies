@@ -18,7 +18,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import com.countrygamer.countrygamer_core.lib.CoreUtil;
+import com.countrygamer.core.lib.CoreUtil;
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.entities.mobs.zombies.EntityFlagZombie;
 import com.countrygamer.pvz.entities.mobs.zombies.EntityFootballZombie;

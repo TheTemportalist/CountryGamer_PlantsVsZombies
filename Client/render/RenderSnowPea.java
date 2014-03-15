@@ -1,5 +1,6 @@
 package com.countrygamer.pvz.client.render;
 
+import com.countrygamer.pvz.block.plant.tile.client.model.ModelSnowPea;
 import com.countrygamer.pvz.entities.mobs.plants.EntitySnowPea;
 import com.countrygamer.pvz.lib.Resources;
 

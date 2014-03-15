@@ -1,10 +1,10 @@
-package com.countrygamer.pvz.blocks.tiles;
+package com.countrygamer.pvz.block.tile;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.countrygamer.countrygamer_core.Items.ItemBase;
-import com.countrygamer.countrygamer_core.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.core.Items.ItemBase;
+import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.lib.Util;
 

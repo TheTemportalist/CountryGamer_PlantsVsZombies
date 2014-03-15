@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.countrygamer.countrygamer_core.Items.ItemBase;
+import com.countrygamer.core.Items.ItemBase;
 
 public class ItemPodBase extends ItemBase {
 	public ItemPodBase(String modid, String name) {

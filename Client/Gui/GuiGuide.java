@@ -6,8 +6,8 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.countrygamer_core.client.gui.GuiButtonArrow;
-import com.countrygamer.countrygamer_core.client.gui.GuiButtonArrow.ButtonType;
+import com.countrygamer.core.client.gui.GuiButtonArrow;
+import com.countrygamer.core.client.gui.GuiButtonArrow.ButtonType;
 import com.countrygamer.pvz.items.ItemGuideBook;
 import com.countrygamer.pvz.lib.Reference;
 

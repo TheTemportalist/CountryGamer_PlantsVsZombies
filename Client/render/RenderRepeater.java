@@ -1,5 +1,6 @@
 package com.countrygamer.pvz.client.render;
 
+import com.countrygamer.pvz.block.plant.tile.client.model.ModelRepeater;
 import com.countrygamer.pvz.entities.mobs.plants.EntityRepeater;
 import com.countrygamer.pvz.lib.Resources;
 

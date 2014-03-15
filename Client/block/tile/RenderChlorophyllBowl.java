@@ -1,36 +1,39 @@
-package com.countrygamer.pvz.blocks.tiles;
+package com.countrygamer.pvz.client.block.tile;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
 import org.lwjgl.opengl.GL11;
 
+import com.countrygamer.pvz.block.tile.TileEntityChlorophyllBowl;
+import com.countrygamer.pvz.lib.Resources;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class RenderGravestone extends TileEntitySpecialRenderer
+public class RenderChlorophyllBowl extends TileEntitySpecialRenderer
 {
-  private ModelGravestone aModel;
+  private ModelChlorophyllBowl aModel;
 
-  public RenderGravestone()
+  public RenderChlorophyllBowl()
   {
-    this.aModel = new ModelGravestone();
+    this.aModel = new ModelChlorophyllBowl();
   }
   @SideOnly(Side.CLIENT)
-  public void renderAModelAt(TileEntityGravestone tileEnt, double x, double y, double z, float f) {
-    int metadata = tileEnt.facing;
+  public void renderAModelAt(TileEntityChlorophyllBowl tileEnt, double x, double y, double z, float f) {
+    int metadata = tileEnt.getBlockMetadata();
     int rotationAngle = 0;
-    if (metadata == 0) {
+    if (metadata % 4 == 0) {
       rotationAngle = 0;
     }
-    if (metadata == 1) {
-      rotationAngle = 90;
+    if (metadata % 4 == 1) {
+      rotationAngle = 270;
     }
-    if (metadata == 2) {
+    if (metadata % 4 == 2) {
       rotationAngle = 180;
     }
-    if (metadata == 3) {
-      rotationAngle = 270;
+    if (metadata % 4 == 3) {
+      rotationAngle = 90;
     }
 
     GL11.glPushMatrix();
@@ -39,7 +42,7 @@ public class RenderGravestone extends TileEntitySpecialRenderer
     GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
     GL11.glRotatef(rotationAngle, 0.0F, 1.0F, 0.0F);
 
-    this.bindTexture(tileEnt.typeTexture[tileEnt.type]);
+    this.bindTexture(Resources.chlorophyllBowl);
 
     GL11.glPushMatrix();
     this.aModel.renderModel(0.0625F);
@@ -48,6 +51,6 @@ public class RenderGravestone extends TileEntitySpecialRenderer
   }
   @SideOnly(Side.CLIENT)
   public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f) {
-    renderAModelAt((TileEntityGravestone)tileentity, x, y, z, f);
+    renderAModelAt((TileEntityChlorophyllBowl)tileentity, x, y, z, f);
   }
 }

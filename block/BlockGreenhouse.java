@@ -1,4 +1,4 @@
-package com.countrygamer.pvz.blocks;
+package com.countrygamer.pvz.block;
 
 import java.util.Random;
 
@@ -6,22 +6,22 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import com.countrygamer.countrygamer_core.block.BlockContainerBase;
-import com.countrygamer.pvz.blocks.tiles.TileEntityChlorophyllBowl;
+import com.countrygamer.core.block.BlockContainerBase;
+import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.block.tile.TileEntityGreenhouse;
 
-public class BlockChlorophyllBowl extends BlockContainerBase {
+public class BlockGreenhouse extends BlockContainerBase {
 	Random random = new Random();
 
-	public BlockChlorophyllBowl(Material mat, String modid, String name,
+	public BlockGreenhouse(Material mat, String modid, String name,
 			Class<? extends TileEntity> tileEntityClass) {
 		super(mat, modid, name, tileEntityClass);
-		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
+		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 
 	public int getRenderType() {
@@ -36,20 +36,19 @@ public class BlockChlorophyllBowl extends BlockContainerBase {
 		return false;
 	}
 
-	public void onNeighborBlockChange(World par1World, int par2, int par3,
-			int par4, Block par5) {
-		super.onNeighborBlockChange(par1World, par2, par3, par4, par5);
-		TileEntityChlorophyllBowl tileentitychest = (TileEntityChlorophyllBowl) par1World
-				.getTileEntity(par2, par3, par4);
-
-		if (tileentitychest != null) {
-			tileentitychest.updateContainingBlockInfo();
+	public boolean onBlockActivated(World world, int x, int y, int z,
+			EntityPlayer player, int par6, float par7, float par8, float par9) {
+		TileEntity tileEnt = world.getTileEntity(x, y, z);
+		if ((tileEnt == null) || (player.isSneaking())) {
+			return false;
 		}
+		player.openGui(PvZ.instance, 0, world, x, y, z);
+		return true;
 	}
 
 	public void breakBlock(World par1World, int par2, int par3, int par4,
 			Block par5, int par6) {
-		TileEntityChlorophyllBowl tileentitychest = (TileEntityChlorophyllBowl) par1World
+		TileEntityGreenhouse tileentitychest = (TileEntityGreenhouse) par1World
 				.getTileEntity(par2, par3, par4);
 
 		if (tileentitychest != null) {
@@ -91,33 +90,5 @@ public class BlockChlorophyllBowl extends BlockContainerBase {
 		}
 
 		super.breakBlock(par1World, par2, par3, par4, par5, par6);
-	}
-
-	public boolean onBlockActivated(World par1World, int par2, int par3,
-			int par4, EntityPlayer par5EntityPlayer, int par6, float par7,
-			float par8, float par9) {
-		if (par1World.isRemote) {
-			return true;
-		}
-
-		IInventory iinventory = func_94442_h_(par1World, par2, par3, par4);
-
-		if (iinventory != null) {
-			par5EntityPlayer.displayGUIChest(iinventory);
-		}
-
-		return true;
-	}
-
-	public IInventory func_94442_h_(World par1World, int par2, int par3,
-			int par4) {
-		Object object = (TileEntityChlorophyllBowl) par1World.getTileEntity(
-				par2, par3, par4);
-
-		if (object == null) {
-			return null;
-		}
-
-		return (IInventory) object;
 	}
 }

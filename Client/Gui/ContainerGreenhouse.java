@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-import com.countrygamer.pvz.blocks.tiles.TileEntityGreenhouse;
+import com.countrygamer.pvz.block.tile.TileEntityGreenhouse;
 import com.countrygamer.pvz.lib.Util;
 
 import net.minecraft.entity.player.EntityPlayer;

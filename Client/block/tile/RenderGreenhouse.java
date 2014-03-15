@@ -1,4 +1,4 @@
-package com.countrygamer.pvz.blocks.tiles;
+package com.countrygamer.pvz.client.block.tile;
 
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -9,9 +9,10 @@ import net.minecraft.tileentity.TileEntity;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.countrygamer_core.block.tiles.TileEntityInventoryBase;
-import com.countrygamer.countrygamer_core.lib.CoreUtil;
+import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.core.lib.CoreUtil;
 import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.block.tile.TileEntityGreenhouse;
 import com.countrygamer.pvz.lib.Resources;
 
 import cpw.mods.fml.relauncher.Side;

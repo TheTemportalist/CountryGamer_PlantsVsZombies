@@ -18,7 +18,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.entities.mobs.zombies.Zombies;
-import com.countrygamer.weepingangels.Entity.EntityWeepingAngel;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;

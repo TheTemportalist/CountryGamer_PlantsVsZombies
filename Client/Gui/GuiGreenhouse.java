@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.pvz.blocks.tiles.TileEntityGreenhouse;
+import com.countrygamer.pvz.block.tile.TileEntityGreenhouse;
 import com.countrygamer.pvz.lib.Reference;
 
 public class GuiGreenhouse extends GuiContainer {

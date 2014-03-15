@@ -1,4 +1,4 @@
-package com.countrygamer.pvz.blocks.tiles;
+package com.countrygamer.pvz.block.tile;
 
 import java.util.HashMap;
 import java.util.Iterator;
