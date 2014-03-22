@@ -2,7 +2,7 @@ package com.countrygamer.pvz.block.plant.tile.client.model;
 
 import net.minecraft.client.model.ModelRenderer;
 
-import com.countrygamer.core.client.block.tiles.ModelBase;
+import com.countrygamer.core.Base.client.ModelBase;
 
 public class ModelThreePeater extends ModelBase {
 	ModelRenderer STEMzC;

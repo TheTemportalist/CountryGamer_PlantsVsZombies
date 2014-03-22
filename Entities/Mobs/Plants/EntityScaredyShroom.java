@@ -1,10 +1,9 @@
 package com.countrygamer.pvz.entities.mobs.plants;
 
-import com.countrygamer.pvz.PvZ;
-
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import com.countrygamer.pvz.PvZ;
 
 public class EntityScaredyShroom extends EntityShroomShooterBase {
 	public EntityScaredyShroom(World world) {

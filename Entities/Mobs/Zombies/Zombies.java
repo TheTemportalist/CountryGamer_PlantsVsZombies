@@ -7,7 +7,6 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import com.countrygamer.pvz.PvZ;
-import com.countrygamer.pvz.entities.mobs.plants.EntDec;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 

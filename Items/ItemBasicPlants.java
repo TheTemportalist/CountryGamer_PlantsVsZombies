@@ -7,7 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.countrygamer.core.Items.ItemMetadataBase;
+import com.countrygamer.core.Base.item.ItemMetadataBase;
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.entities.mobs.plants.EntityPeaShooter;
 import com.countrygamer.pvz.entities.mobs.plants.EntityRepeater;

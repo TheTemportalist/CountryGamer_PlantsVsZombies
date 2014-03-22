@@ -6,8 +6,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.core.client.block.tiles.ModelBase;
-import com.countrygamer.pvz.lib.Resources;
+import com.countrygamer.core.Base.client.ModelBase;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

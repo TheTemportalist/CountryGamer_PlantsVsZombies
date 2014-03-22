@@ -1,9 +1,8 @@
 package com.countrygamer.pvz.block.plant.tile.client.model;
 
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 
-import com.countrygamer.core.client.block.tiles.ModelBase;
+import com.countrygamer.core.Base.client.ModelBase;
 
 public class ModelSunflower extends ModelBase {
 	ModelRenderer	Stem;

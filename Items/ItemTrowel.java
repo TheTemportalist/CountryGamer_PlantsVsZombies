@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.countrygamer.core.Items.ItemToolBase;
+import com.countrygamer.core.Base.item.ItemToolBase;
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.entities.mobs.plants.EntityPlantBase;
 import com.countrygamer.pvz.lib.Util;

@@ -1,9 +1,7 @@
 package com.countrygamer.pvz.block.tile;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -15,7 +13,7 @@ public class GreenhouseRecipes {
 
 	private static final GreenhouseRecipes smeltingBase = new GreenhouseRecipes();
 
-	private Map smeltingList = new HashMap();
+	private Map<ItemStack[], ItemStack> smeltingList = new HashMap<ItemStack[], ItemStack>();
 
 	public static final GreenhouseRecipes smelting() {
 		return smeltingBase;
@@ -106,7 +104,7 @@ public class GreenhouseRecipes {
 		return validInput && validMod1 && validMod2;
 	}
 
-	public Map getSmeltingList() {
+	public Map<ItemStack[], ItemStack> getSmeltingList() {
 		return this.smeltingList;
 	}
 }

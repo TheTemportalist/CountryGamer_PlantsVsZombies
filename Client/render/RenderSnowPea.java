@@ -1,17 +1,17 @@
 package com.countrygamer.pvz.client.render;
 
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.ResourceLocation;
+
 import com.countrygamer.pvz.block.plant.tile.client.model.ModelSnowPea;
 import com.countrygamer.pvz.entities.mobs.plants.EntitySnowPea;
 import com.countrygamer.pvz.lib.Resources;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.client.renderer.entity.RendererLivingEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public class RenderSnowPea extends RenderLiving

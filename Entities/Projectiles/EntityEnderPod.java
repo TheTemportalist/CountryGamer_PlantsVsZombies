@@ -1,6 +1,5 @@
 package com.countrygamer.pvz.entities.projectiles;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.util.DamageSource;

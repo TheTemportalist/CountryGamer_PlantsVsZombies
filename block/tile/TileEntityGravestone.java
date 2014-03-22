@@ -1,20 +1,17 @@
 package com.countrygamer.pvz.block.tile;
 
-import java.io.PrintStream;
 import java.util.List;
-
-import com.countrygamer.pvz.lib.Util;
-import com.countrygamer.pvz.lib.Resources;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AABBPool;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+
+import com.countrygamer.pvz.lib.Resources;
+import com.countrygamer.pvz.lib.Util;
 
 public class TileEntityGravestone extends TileEntity {
 	public int facing = -1;
@@ -43,7 +40,7 @@ public class TileEntityGravestone extends TileEntity {
 
 			Entity entity = new EntityZombie(getWorldObj());
 
-			List entList = getWorldObj().getEntitiesWithinAABB(
+			List<?> entList = getWorldObj().getEntitiesWithinAABB(
 					entity.getClass(),
 					AxisAlignedBB.getAABBPool()
 							.getAABB(this.xCoord - 3.0D, this.yCoord,

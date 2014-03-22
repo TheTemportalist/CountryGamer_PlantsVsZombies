@@ -2,7 +2,6 @@ package com.countrygamer.pvz.entities.projectiles;
 
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class EntityPodPop extends EntityFX

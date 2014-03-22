@@ -1,19 +1,18 @@
 package com.countrygamer.pvz.entities.mobs.plants;
 
-import com.countrygamer.pvz.PvZ;
-import com.countrygamer.pvz.entities.projectiles.EntityCreeperPod;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIArrowAttack;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import com.countrygamer.pvz.PvZ;
+import com.countrygamer.pvz.entities.projectiles.EntityCreeperPod;
 
 public class EntityCreeperRepeater extends EntityPlantShooterBase
 {

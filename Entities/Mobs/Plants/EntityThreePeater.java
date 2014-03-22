@@ -1,18 +1,14 @@
 package com.countrygamer.pvz.entities.mobs.plants;
 
-import java.util.Random;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.entities.projectiles.EntityPeaPod;
 import com.countrygamer.pvz.lib.Util;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
 
 public class EntityThreePeater extends EntityPlantShooterBase {
 	public EntityThreePeater(World par1World) {

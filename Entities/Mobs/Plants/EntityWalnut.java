@@ -29,12 +29,12 @@ public class EntityWalnut extends EntityPlantBase {
 		super.onEntityUpdate();
 
 		int r = 10;
-		List rEntities = this.worldObj.getEntitiesWithinAABB(
+		List<?> rEntities = this.worldObj.getEntitiesWithinAABB(
 				EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.posX
 						- r, this.posY, this.posZ - r, this.posX + r,
 						this.posY + 1.0D, this.posZ + r));
 
-		ArrayList otherMob = new ArrayList();
+		ArrayList<EntityLivingBase> otherMob = new ArrayList<EntityLivingBase>();
 		for (int i = 0; i < rEntities.size(); i++) {
 			EntityLivingBase ent = (EntityLivingBase) rEntities.get(i);
 			if ((ent.getCreatureAttribute() == PvZ.plantAttribute)

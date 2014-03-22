@@ -1,16 +1,11 @@
 package com.countrygamer.pvz;
 
-import java.util.Random;
-
-import com.countrygamer.pvz.entities.projectiles.EntityPodPop;
-
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.client.settings.GameSettings;
-import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
+
+import com.countrygamer.pvz.entities.projectiles.EntityPodPop;
 
 public class ParticleEffects
 {

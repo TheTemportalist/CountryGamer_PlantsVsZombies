@@ -1,16 +1,13 @@
 package com.countrygamer.pvz.entities.mobs.plants;
 
-import com.countrygamer.pvz.lib.Resources;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+
+import com.countrygamer.pvz.lib.Resources;
 
 public class EntityShroomBase extends EntityPlantBase
 {

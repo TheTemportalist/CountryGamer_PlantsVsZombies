@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityList.EntityEggInfo;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityGhast;
@@ -14,16 +13,14 @@ import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.projectile.EntityWitherSkull;
 import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.world.biome.BiomeGenBase;
 
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.entities.mobs.zombies.Zombies;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class EntDec {
-	public static ArrayList<Class> entList = new ArrayList();
+	public static ArrayList<Class<?>> entList = new ArrayList<Class<?>>();
 
 	public static int mobID = 500;
 	public static int primaryColor;

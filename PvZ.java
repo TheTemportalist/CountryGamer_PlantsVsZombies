@@ -18,7 +18,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.countrygamer.core.Core;
-import com.countrygamer.core.Handler.PacketPipeline;
+import com.countrygamer.core.Base.packet.PacketPipeline;
 import com.countrygamer.pvz.block.BlockChlorophyllBowl;
 import com.countrygamer.pvz.block.BlockDarkenedGrass;
 import com.countrygamer.pvz.block.BlockEndowedGrass;

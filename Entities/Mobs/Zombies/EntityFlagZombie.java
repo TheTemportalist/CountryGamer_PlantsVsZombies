@@ -1,14 +1,10 @@
 package com.countrygamer.pvz.entities.mobs.zombies;
 
-import java.util.List;
-import java.util.Random;
-
-import com.countrygamer.pvz.PvZ;
-
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+
+import com.countrygamer.pvz.PvZ;
 
 public class EntityFlagZombie extends EntityZombie {
 

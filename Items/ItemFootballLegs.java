@@ -2,7 +2,7 @@ package com.countrygamer.pvz.items;
 
 import net.minecraft.item.ItemArmor;
 
-import com.countrygamer.core.Items.ItemArmorBase;
+import com.countrygamer.core.Base.item.ItemArmorBase;
 
 public class ItemFootballLegs extends ItemArmorBase {
 	public ItemFootballLegs(String modid, String name,

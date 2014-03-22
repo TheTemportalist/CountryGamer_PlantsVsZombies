@@ -10,7 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-import com.countrygamer.core.block.BlockContainerBase;
+import com.countrygamer.core.Base.block.BlockContainerBase;
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.block.tile.TileEntityGravestone;
 
@@ -31,7 +31,7 @@ public class BlockGravestone extends BlockContainerBase {
 
 	public ArrayList<ItemStack> getBlockDropped(World world, int x, int y,
 			int z, int metadata, int fortune) {
-		ArrayList ret = new ArrayList();
+		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 		switch (((TileEntityGravestone)world.getTileEntity(x, y, z)).type) {
 		case 1:
 			ret.add(new ItemStack(Items.rotten_flesh, 8));

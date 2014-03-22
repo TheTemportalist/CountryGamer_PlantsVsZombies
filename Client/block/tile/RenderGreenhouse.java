@@ -9,7 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 
 import org.lwjgl.opengl.GL11;
 
-import com.countrygamer.core.block.tiles.TileEntityInventoryBase;
+import com.countrygamer.core.Base.block.tiles.TileEntityInventoryBase;
 import com.countrygamer.core.lib.CoreUtil;
 import com.countrygamer.pvz.PvZ;
 import com.countrygamer.pvz.block.tile.TileEntityGreenhouse;
@@ -115,7 +115,7 @@ public class RenderGreenhouse extends TileEntitySpecialRenderer {
 
 	private void renderItem(TileEntityInventoryBase tileEnt,
 			RenderItem itemRender, ItemStack stack, float x, float y, float z) {
-
+		GL11.glPushMatrix();
 		float scaleFactor = CoreUtil.getGhostItemScaleFactor(this.outputRender,
 				stack);
 		float rotationAngle = (float) (720.0 * (System.currentTimeMillis() & 0x3FFFL) / 0x3FFFL);
@@ -129,6 +129,7 @@ public class RenderGreenhouse extends TileEntitySpecialRenderer {
 		GL11.glRotatef(rotationAngle, 0.0F, 1.0F, 0.0F);
 
 		itemRender.doRender(ghostEntityItem, 0, 0, 0, 0, 0);
+		GL11.glPopMatrix();
 	}
 
 }
