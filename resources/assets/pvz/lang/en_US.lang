@@ -1,0 +1,46 @@
+item.Chlorophyll.name=Chlorophyll
+item.Sunlight.name=Sunlight
+item.moonlight.name=Moonlight
+item.trowel.name=Trowel
+item.transtrowel.name=Trans Trowel
+
+item.PeaPod.name=Pea Pod
+item.SnowPod.name=Snow Pod
+item.ShroomPod.name=Shroom Pod
+
+item.Sunflower Plant.Sunflower Plant.name=Sunflower Plant
+item.Sunflower Plant.Pea Shooter Plant.name=Pea Shooter Plant
+item.Sunflower Plant.Snow Pea Plant.name=Snow Pea Plant
+item.Sunflower Plant.Repeater Plant.name=Repeater Plant
+item.Sunflower Plant.Three-Peater Plant.name=Three-Peater Plant
+
+item.Puff-shroom Plant.Puff-shroom Plant.name=Puff-shroom Plant
+item.Puff-shroom Plant.Scaredy-shroom Plant.name=Scaredy-shroom Plant
+item.Puff-shroom Plant.Fume-shroom Plant.name=Fume-shroom Plant
+item.Puff-shroom Plant.Moon-shroom Plant.name=Moon-shroom Plant
+
+item.football_helmet.name=Football Helmet
+item.football_chest.name=Football Chest Gear
+item.football_legs.name=Football Leggings
+item.football_boots.name=Football Shoes
+item.flag.name=Flag
+
+
+tile.endowedGrass.name=Endowed Grass
+tile.darkenedGrass.name=Darkened Grass
+tile.chlorophyllBowl.name=Chlorophyll Bowl
+tile.greenhouse.name=Greenhouse
+
+
+entity.pvz.Sunflower.name=Sunflower
+entity.pvz.PeaShooter.name=Pea Shooter
+entity.pvz.SnowPea.name=Snow Pea
+entity.pvz.Repeater.name=Repeater
+entity.pvz.ThreePeater.name=Three-Peater
+entity.pvz.PuffShroom.name=Puff-Shroom
+entity.pvz.FumeShroom.name=Fume-Shroom
+entity.pvz.ScaredyShroom.name=Scaredy-Shroom
+entity.pvz.MoonShroom.name=Moon-Shroom
+entity.pvz.Football.name=Football Zombie
+entity.pvz.Flag.name=Flag Zombie
+entity.pvz.Explorer.name=Explorer Zombie
