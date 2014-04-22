@@ -17,9 +17,9 @@ import com.countrygamer.pvz.entities.mobs.plants.EntityThreePeater;
 import com.countrygamer.pvz.lib.Util;
 
 public class ItemBasicPlants extends ItemMetadataBase {
-	public static final String[] itemGameNames = { "Sunflower Plant",
-			"Pea Shooter Plant", "Snow Pea Plant", "Repeater Plant",
-			"Three-Peater Plant" };
+	public static final String[] itemGameNames = { "Sunflower",
+			"Pea Shooter", "Snow Pea", "Repeater",
+			"Three-Peater" };
 
 	public boolean onGround = true;
 
@@ -62,7 +62,7 @@ public class ItemBasicPlants extends ItemMetadataBase {
 	public void baseItemUse(World world, EntityPlayer player, int x, int y,
 			int z, EntityLiving par0Entity, ItemStack itemStack) {
 		EntityLiving ent = par0Entity;
-		if (world.getBlock(x, y + 1, z) == null) {
+		if (world.getBlock(x, y + 1, z) == Blocks.air) {
 			Block blockUnder = world.getBlock(x, y, z);
 			if ((blockUnder == PvZ.endowedGrass)
 					|| (blockUnder == Blocks.waterlily)) {

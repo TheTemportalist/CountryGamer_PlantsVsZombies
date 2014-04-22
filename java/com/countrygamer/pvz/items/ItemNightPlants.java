@@ -58,7 +58,7 @@ public class ItemNightPlants extends ItemMetadataBase {
 	public void baseItemUse(World world, EntityPlayer player, int x, int y,
 			int z, EntityLiving par0Entity, ItemStack itemStack) {
 		EntityLiving ent = par0Entity;
-		if (world.getBlock(x, y + 1, z) == null) {
+		if (world.getBlock(x, y + 1, z) == Blocks.air) {
 			Block blockUnder = world.getBlock(x, y, z);
 			if ((blockUnder == PvZ.darkenedGrass)
 					|| (blockUnder == Blocks.waterlily)) {

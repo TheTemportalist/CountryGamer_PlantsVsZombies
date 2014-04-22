@@ -293,6 +293,7 @@ public class PvZ implements IFuelHandler, IGuiHandler {
 				TileEntityGreenhouse.class).setHardness(0.2F).setResistance(3.0F);
 		Core.addBlockToTab(PvZ.greenhouse);
 		
+		/*
 		for (int i = 0; i < PvZ.basicDayNames.length; i++) {
 			String name = PvZ.basicDayNames[i];
 			Class<? extends TileEntityPlant> tileEntClass = PvZ.basicDayTiles[i];
@@ -303,6 +304,7 @@ public class PvZ implements IFuelHandler, IGuiHandler {
 			Core.addBlockToTab(PvZ.basicDayPlants[i]);
 			
 		}
+		*/
 		
 	}
 	
