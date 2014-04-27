@@ -2,7 +2,7 @@ package com.countrygamer.pvz.items;
 
 import net.minecraft.item.ItemArmor;
 
-import com.countrygamer.core.Base.item.ItemArmorBase;
+import com.countrygamer.core.Base.common.item.ItemArmorBase;
 
 public class ItemFootballChest extends ItemArmorBase {
 	public ItemFootballChest(String modid, String name,

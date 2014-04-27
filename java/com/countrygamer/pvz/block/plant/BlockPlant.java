@@ -3,7 +3,7 @@ package com.countrygamer.pvz.block.plant;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 
-import com.countrygamer.core.Base.block.BlockContainerBase;
+import com.countrygamer.core.Base.common.block.BlockContainerBase;
 
 public class BlockPlant extends BlockContainerBase {
 	

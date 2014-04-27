@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.countrygamer.core.Base.item.ItemBase;
+import com.countrygamer.core.Base.common.item.ItemBase;
 import com.countrygamer.pvz.PvZ;
 
 public class ItemGuideBook extends ItemBase {
